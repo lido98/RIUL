@@ -14,7 +14,8 @@ def main():
     for r in recovered:
         print(docs[r[0]].name + ' ' + str(round(r[1],3)) + '\n')
 
-main()
+if __name__ == '__main__':
+    main()
 
 
 
