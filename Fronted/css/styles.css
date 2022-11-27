@@ -1,0 +1,48 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+/*main styles*/
+main{
+    margin-top: 5%;
+    text-align: center;
+}
+main .main-logo{
+    width: 530px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+main .main-logo img{
+    width: 270px;
+    
+}
+main .main-input{
+    width: 530px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+main .main-input-container{
+    width: 525px;
+    border-radius: 100px; 
+    border:1px solid #e1e2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .main-input input{
+    width: 450px;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+main .main-input .search-icon{
+    background-image: url('../images/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+}
