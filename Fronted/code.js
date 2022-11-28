@@ -35,23 +35,35 @@ function createDocSpace(docIn,link,textLink,consult,passage){
 }
 
 // set and send consult for GET API////////////////////////////////////////////////////////////////////
+
+const consultParam = "El parametro que se le paso a la talla esta"
 const inputConsult = document.querySelector('#consult')
+let value = inputConsult.value
+
+function fullDocuments(){
+    if (value != ""){
+        getAndCreateDocuments(value)
+    }
+}
 
 inputConsult.addEventListener("keyup", e => { 
+
     if (e.keyCode === 13) {
-        // location.reload()
-        let docs = document.querySelectorAll("div.doc_object")
-        for (let i = 0; i < docs.length; i++){
-            // console.log(documents[i])
-            docs[i].remove()
-        }
-        let value = inputConsult.value
-        getAndCreateDocuments(value)
+        inputConsult.value = consultParam
+        location.assign("docs.html")
+        
+        // let docs = document.querySelectorAll("div.doc_object")
+        // for (let i = 0; i < docs.length; i++){
+        //     // console.log(documents[i])
+        //     docs[i].remove()
+        // }
+
+        // fullDocuments()    
     }
 })
 
-const xhr = new XMLHttpRequest()
 
+const xhr = new XMLHttpRequest()
 function getAndCreateDocuments(consult){
     xhr.open("GET","http://127.0.0.1:8000/consult/"+consult, false)
     xhr.send()
@@ -65,3 +77,5 @@ function getAndCreateDocuments(consult){
         createDocSpace(doc,link, textLink,consult,passage)
     }
 }
+
+fullDocuments()

@@ -14,6 +14,6 @@ def documents_to_json_list(documents):
     #     result.append(document_to_json(lo del documento))
     
     for i in range (3):
-        result.append(document_to_json('Las palabras a marcar','un pedazo del texto donde esten varias palabras','link del documento','titulo del documento'))
+        result.append(document_to_json('Las palabras a marcar','un pedazo del texto donde esten varias palabras','link.pdf','titulo del documento'))
     
     return result       
