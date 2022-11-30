@@ -35,22 +35,26 @@ function createDocSpace(docIn,link,textLink,consult,passage){
 }
 
 // set and send consult for GET API////////////////////////////////////////////////////////////////////
-
-const consultParam = "El parametro que se le paso a la talla esta"
+const params= new URLSearchParams(document.URL.split('?')[1]);
 const inputConsult = document.querySelector('#consult')
-let value = inputConsult.value
+inputConsult.value = params.get('consult')
+let value = inputConsult.value;
+
+document.querySelector('#tittle').innerHTML = params.get('consult') + " - Buscando con RIUL"
 
 function fullDocuments(){
     if (value != ""){
-        getAndCreateDocuments(value)
+        getAndCreateDocuments(value);
     }
 }
 
 inputConsult.addEventListener("keyup", e => { 
 
     if (e.keyCode === 13) {
-        inputConsult.value = consultParam
-        location.assign("docs.html")
+        let tempValue = inputConsult.value
+        inputConsult.value = value
+
+        location.assign("docs.html?consult="+tempValue)
         
         // let docs = document.querySelectorAll("div.doc_object")
         // for (let i = 0; i < docs.length; i++){
@@ -79,3 +83,6 @@ function getAndCreateDocuments(consult){
 }
 
 fullDocuments()
+
+// let params= new URLSearchParams(document.URL.split('?')[1]);
+// document.getElementById("consult").value = params.get('consult');
