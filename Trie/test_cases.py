@@ -33,7 +33,6 @@ def test_cases_trie():
 
         print(word + " aparece: " + str(trie.word_count_in_document(word,int(doc))))
         print(word + " aparece en los documentos: "+str(str(trie.documents_of_word(word))))
-        print(word + " idf: "+str(str(trie.idf_of_word(word))))
         
         print ("cantidad de documentos del trie: " + str(trie.documents)+"["+str(trie.total_documents)+"]")
         print ("Maximas repeticiones del trie: " + str(trie.max_count_in_document))
