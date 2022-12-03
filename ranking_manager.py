@@ -1,5 +1,5 @@
-from indexer import SmartIndexer,QueryIndexer
-import math
+from .indexer import Indexer
+from .query_parser import QueryIndexer
 from sklearn.metrics.pairwise import cosine_similarity
 
 class Ranking():
@@ -7,9 +7,8 @@ class Ranking():
         self.top = top
         
     def __call__(self, docs, query, a = 0.5):
-        si = SmartIndexer()
-        doc_w = si(docs) 
-                      
+        si = Indexer(docs)
+        doc_w = si()                       
          
         query_w = QueryIndexer(si.vocabulary , a)(query) 
         
