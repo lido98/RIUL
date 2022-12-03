@@ -110,11 +110,11 @@ class Trie:
             return []
 
     def weight (self,word, document):
-        from math import log
+        from math import log10
         node = self.last_node(word)
         if node != None:
             try:
-                idf = log(node.root.total_documents/node.total_documents)
+                idf = log10(node.root.total_documents/node.total_documents)
                 tf = node.count_in_document[document]/node.root.max_count_in_document[document]
                 return idf*tf
             except: return 0
