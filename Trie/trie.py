@@ -1,4 +1,7 @@
+from collection import Collection, Document
 class Trie:
+    last_word = ""
+    
     def __init__(self, value = "^", root = False, document_id = 'default', parent = None):
         '''Create new Trie with `root = True`. Create simple node with `root = False`'''
         self.value = value
@@ -6,17 +9,27 @@ class Trie:
         
         if root == True: 
             self.root = self
+            self.words = []
+            self.index_document = {}
             self.documents = []
             self.max_count_in_document = {}
             self.total_documents = 0
         else:
             self.root = parent.root
     
+    def insert_collection(self,collection:Collection):
+        for document in collection.docs:
+            self.insert_document(document)
+    
+    def insert_document(self, document:Document):
+        self.insert_text(document.body,document.id)
+
     def insert_text(self,text,document_id = 'default'):
         '''Insert new docuement whit params `text` and a specified `document_id` if you want use many documents, without any document in another case,
         if you do not specify a 'document id', it is assumed to be a single document'''
         words = text.split(" ") 
         for word,pos in zip(words,range(len(words))):
+            Trie.last_word = word
             self.insert_word(word,pos,document_id)
 
     def insert_word(self,word,pos,document_id):
@@ -27,8 +40,8 @@ class Trie:
     def insert_char_in_children(self,char,word,pos,document_id):
         if self.root.documents.__contains__(document_id) == False : 
             self.root.documents.append(document_id)
+            self.root.index_document[document_id] = self.root.total_documents
             self.root.total_documents += 1
-        
         try : 
             node = self.childs[char]
             if len(word) == 1:
@@ -57,6 +70,7 @@ class Trie:
                 node.count_in_document = {document_id:1}
                 node.documents = [document_id]
                 node.total_documents = 1
+                self.root.words.append(Trie.last_word)
 
                 # Max Frec In Document
                 self.new_max_count(document_id,node.count_in_document[document_id])
@@ -111,4 +125,38 @@ class Trie:
             except: return 0
         else:
             return 0    
-                
+
+    def weight (self,word, document):
+        from math import log
+        node = self.last_node(word)
+        if node != None:
+            try:
+                idf = log(node.root.total_documents/node.total_documents)
+                tf = node.count_in_document[document]/node.root.max_count_in_document[document]
+                return idf*tf
+            except: return 0
+        else:
+            return 0    
+class VectorialMatrix:
+    def __init__(self,trie:Trie):
+        self.matrix = self.full_matrix(trie)
+        pass
+    
+    def full_matrix(self,trie:Trie):
+        words = trie.words
+
+        matrix = []
+        
+        for i in range(trie.total_documents):
+            matrix.append([0] * len(words))
+
+        for word,w in zip(words, range(len(words))):
+            documents = trie.documents_of_word(word)
+            for document in documents:
+                d = trie.index_document[document]
+                matrix[d][w] = trie.weight(word,document) 
+        return matrix        
+    
+    def get_matrix(self):
+        return self.matrix
+        
