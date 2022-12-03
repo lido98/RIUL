@@ -101,14 +101,6 @@ class Trie:
             except: return 0 
         return 0 
     
-    def word_position_in_document(self,word,document_id = 'default'):
-        '''returns the all positions of a word as whole word in a document'''
-        node = self.last_node(word)
-        if node != None:
-            try: return node.position_in_document[document_id] 
-            except: return []
-        return []
-
     def documents_of_word(self,word):
         node = self.last_node(word)
         if node != None:
@@ -116,15 +108,6 @@ class Trie:
             except: return []
         else:
             return []
-
-    def idf_of_word(self,word):
-        from math import log
-        node = self.last_node(word)
-        if node != None:
-            try: return log(node.total_documents/ node.root.total_documents)
-            except: return 0
-        else:
-            return 0    
 
     def weight (self,word, document):
         from math import log
