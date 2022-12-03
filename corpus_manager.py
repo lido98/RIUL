@@ -22,7 +22,10 @@ class Collection:
         return len(self.docs)
 
     def doc_bodies(self) -> list[str]:
-        return list(map(lambda doc: doc.body, self.docs))     
+        return list(map(lambda doc: doc.body, self.docs))  
+
+    def __add__(self, doc: Document):
+        self.docs.append(doc)  
 
 
 class BaseCorpusParser(ABC):

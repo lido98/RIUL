@@ -4,7 +4,10 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-class QueryIndexer():
+class Query:
+    pass
+
+class QueryIndexer:
     def __init__(self, vocabulary, a = 0.5):
         self.a = a
         self.vocabulary = vocabulary
@@ -28,3 +31,4 @@ class QueryIndexer():
         vectorize = TfidfVectorizer(vocabulary=self.vocabulary)
         weight = vectorize.fit_transform([query])
         return weight
+
