@@ -2,7 +2,7 @@ from cmath import nan
 import environment
 def send_consult(consult):
     '''Buscar los ducumentos y por cada documento recuperado devolver un formato como este'''
-    rank  = environment.Environment.matrix.get_rank_of_query(consult)
+    rank  = environment.Environment.search_engine.vectors.get_rank_of_query(consult)
     documents = []
     for document in rank:
         if rank[document] < 0.04 or rank[document] == nan: break

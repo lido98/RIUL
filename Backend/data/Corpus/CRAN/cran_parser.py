@@ -1,4 +1,4 @@
-from backend.corpus_manager import BaseCorpusParser
+from data.corpus_manager import BaseCorpusParser
 import pathlib
 import re
 

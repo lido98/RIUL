@@ -1,5 +1,5 @@
 
-from backend.main import *
+from data.main import *
 from api.get_consult import *
 
 main()
