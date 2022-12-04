@@ -19,10 +19,13 @@ class Trie:
     
     def insert_collection(self,collection:Collection):
         for document in collection.docs:
-            self.insert_document(document)
+            self.insert_document(document, by_id = True)
     
-    def insert_document(self, document:Document):
-        self.insert_text(document.body,document.id)
+    def insert_document(self, document:Document, by_id = False):
+        if by_id == True:
+            self.insert_text(document.body, document.id)
+        else:
+            self.insert_text(document.body, document)
 
     def insert_text(self,text,document_id = 'default'):
         '''Insert new docuement whit params `text` and a specified `document_id` if you want use many documents, without any document in another case,
@@ -122,11 +125,16 @@ class Trie:
             return 0    
 class VectorialMatrix:
     def __init__(self,trie:Trie):
+        self.trie = trie
+        self.words = trie.words
+        self.total_documents = trie.total_documents
+        self.index_word = {}
+        self.rank = {}
         self.matrix = self.full_matrix(trie)
-        pass
-    
+        self.sim_list("leon leon leon perro zorro gato gato")
+
     def full_matrix(self,trie:Trie):
-        words = trie.words
+        words = self.words
 
         matrix = []
         
@@ -134,6 +142,7 @@ class VectorialMatrix:
             matrix.append([0] * len(words))
 
         for word,w in zip(words, range(len(words))):
+            self.index_word[word] = w
             documents = trie.documents_of_word(word)
             for document in documents:
                 d = trie.index_document[document]
@@ -142,4 +151,44 @@ class VectorialMatrix:
     
     def get_matrix(self):
         return self.matrix
+    
+    def freqs_in_query(self, query):
+        result = {}
+        max_count = 1
+        for term in query.split(" "):
+            try: 
+                result[term] +=1
+                max_count = max(max_count,result[term])
+            except: result [term] = 1
+            
+        return [result,max_count]
+
+    def sim_list(self, query):
+        freqs = self.freqs_in_query(query)
         
+        from math import log10
+        vector_query = [0] * len(self.words) 
+        
+        a = 0.5
+        N = self.total_documents + 1
+
+        # for word in self.words:
+        #     n_i = len(self.trie.documents_of_word(word)) + 1
+        #     vector_query.append( a * log10(N/n_i))
+
+        for word in freqs[0]:
+            n_i = len(self.trie.documents_of_word(word)) + 1
+
+            try: 
+                vector_query[self.index_word[word]] = (a *((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
+            except: pass
+
+        for document,d in zip(self.matrix, range(len(self.matrix))):
+            self.rank[self.trie.documents[d]]= self.sim(document, vector_query)
+
+    def sim (self, doc, query):
+        import numpy as np 
+        return np.dot(doc, query)/(np.linalg.norm(doc)*np.linalg.norm(query))    
+    
+    def get_rank(self):
+        return self.rank

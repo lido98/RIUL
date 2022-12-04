@@ -31,18 +31,7 @@ def test_cases_trie():
 
     trie.insert_collection(Collection(documents))
     matrix = VectorialMatrix(trie)
-    
-    while (True):
-        print ("\nEntre la palabra que desea tener informacion")
-        word = input()
-        print ("\nEntre el id del documento del cual desea conocer informacion respecto a la palabra anterior")
-        doc = input()
-
-        print(word + " aparece: " + str(trie.word_count_in_document(word,int(doc))))
-        print(word + " aparece en los documentos: "+str(str(trie.documents_of_word(word))))
-        
-        print ("cantidad de documentos del trie: " + str(trie.documents)+"["+str(trie.total_documents)+"]")
-        print ("Maximas repeticiones del trie: " + str(trie.max_count_in_document))
-        print("\n")
+    rank = matrix.get_rank()
+    print (rank)
 
 main()
