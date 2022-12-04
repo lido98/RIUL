@@ -1,10 +1,11 @@
+from cmath import nan
 import environment
 def send_consult(consult):
     '''Buscar los ducumentos y por cada documento recuperado devolver un formato como este'''
     rank  = environment.Environment.matrix.get_rank_of_query(consult)
     documents = []
     for document in rank:
-        if rank[document] < 0.04: break
+        if rank[document] < 0.04 or rank[document] == nan: break
         documents.append(document)
 
     return documents_to_json_list(documents,consult)
@@ -18,5 +19,5 @@ def document_to_json(consult,passage,link,tittle):
 def documents_to_json_list(documents,consult):
     result = []
     for document in documents:
-        result.append(document_to_json(consult,document.body,"link.pdf",document.title))
+        result.append(document_to_json(consult,document.body,str(document.id) + ".txt",document.title))
     return result       

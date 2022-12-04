@@ -55,14 +55,6 @@ inputConsult.addEventListener("keyup", e => {
         inputConsult.value = value
 
         location.assign("docs.html?consult="+tempValue)
-        
-        // let docs = document.querySelectorAll("div.doc_object")
-        // for (let i = 0; i < docs.length; i++){
-        //     // console.log(documents[i])
-        //     docs[i].remove()
-        // }
-
-        // fullDocuments()    
     }
 })
 
@@ -78,7 +70,15 @@ function getAndCreateDocuments(consult){
         let passage = documents[i]['passage']
         let consult = documents[i]['consult'].split(' ')
         let textLink = documents[i]['tittle']
+        
+        let maxChars = 370
+        if (passage.length > maxChars){
+            passage = passage.substring(0,maxChars)
+            passage += '...'
+        }
+
         createDocSpace(doc,link, textLink,consult,passage)
+
     }
 }
 

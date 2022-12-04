@@ -1,3 +1,9 @@
+.scroll
+{
+     overflow-x:scroll;
+     overflow-y:hidden;
+}
+
 body{
     margin:0;
     padding:0;
@@ -16,7 +22,7 @@ body{
 
 .documents_section .doc_object{
     margin-top: 40px;
-    border-bottom: 1px solid #e1e2e6;
+    border-bottom: 1px solid lightslategrey;
 }
 .documents_section .doc_object a{
     font-size: 20px;   
@@ -28,16 +34,24 @@ body{
 
 /*main styles*/
 main{
-    margin-top: 1%;
+    margin-top: 0%;
     text-align: center;
+    background-color: darkslategrey;
+    height: 130px;
+    scroll-behavior: inherit;
 }
+
 main .main-logo{
     width: 130px;
     margin: 0 auto;
     margin-bottom: 5px;
+    margin-top: 0px;
+}
+main .empty_space{
+    height: 20px;
 }
 main .main-logo img{
-    width: 50px;
+    width: 100px;
 }
 
 main .main-input{
@@ -47,7 +61,7 @@ main .main-input{
 }
 main .main-input-container{
     width: 500px;
-    border-radius: 100px; 
+    border-radius: 10px; 
     border:1px solid #e1e2e6;
     display: flex;
     justify-content: center;
@@ -60,12 +74,13 @@ main .main-input input{
     border: none;
     outline: none;
     background-color: transparent;
+    color: white;
 }
 main .main-input .search-icon{
     background-image: url('../images/search.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    width: 18px;
-    height: 18px;
+    width: 24px;
+    height: 24px;
 }
