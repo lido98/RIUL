@@ -6,8 +6,9 @@ class MatrixLatent:
         self.trie = trie
         self.index_document = trie.index_document
         self.matrix = []
+        self.full_matrix()        
 
-    def fullMatrix(self):
+    def full_matrix(self):
         trie = self.trie
 
         for i in range(trie.total_documents):
@@ -24,8 +25,8 @@ class MatrixLatent:
         for document in self.trie.documents_of_word(word):
             tf = self.tf(word,document)
             value =self.pij(tf,gf) 
-            sum += value*log10(value)
-        return 1 + sum    
+            sum += (value*log10(value))
+        return 1 + sum/log10(self.trie.total_documents)
 
     def pij(self, tf,gf): return tf/gf
 
