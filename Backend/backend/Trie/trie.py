@@ -35,6 +35,12 @@ class Trie:
     def insert_text(self,text,document_id = 'default'):
         '''Insert new docuement whit params `text` and a specified `document_id` if you want use many documents, without any document in another case,
         if you do not specify a 'document id', it is assumed to be a single document'''
+        
+        if self.root.documents.__contains__(document_id) == False : 
+            self.root.documents.append(document_id)
+            self.root.index_document[document_id] = self.root.total_documents
+            self.root.total_documents += 1
+
         words = text.split(" ") 
         for word,pos in zip(words,range(len(words))):
             Trie.last_word = word
@@ -46,10 +52,6 @@ class Trie:
             self.insert_char_in_children(word[0],word,pos,document_id)
 
     def insert_char_in_children(self,char,word,pos,document_id):
-        if self.root.documents.__contains__(document_id) == False : 
-            self.root.documents.append(document_id)
-            self.root.index_document[document_id] = self.root.total_documents
-            self.root.total_documents += 1
         try : 
             node = self.childs[char]
             if len(word) == 1:
