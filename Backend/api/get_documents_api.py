@@ -3,7 +3,8 @@ def send_consult(consult):
     '''Buscar los ducumentos y por cada documento recuperado devolver un formato como este'''
     rank  = environment.Environment.matrix.get_rank_of_query(consult)
     documents = []
-    for document,i in zip(rank,range(10)):
+    for document in rank:
+        if rank[document] < 0.04: break
         documents.append(document)
 
     return documents_to_json_list(documents,consult)
