@@ -1,4 +1,4 @@
-from corpus_manager import Collection, Document
+from backend.corpus_manager import Collection, Document
 from abc import ABC, abstractmethod
 from nltk import word_tokenize
 from nltk.corpus import stopwords

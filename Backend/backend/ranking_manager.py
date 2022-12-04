@@ -1,7 +1,7 @@
-from corpus_manager import Collection, Document
+from backend.corpus_manager import Collection, Document
 #from indexer import BaseIndexer, BaseInvertedIndex
-from Models.Vector_Model.vector_indexer import VectorIndexer, VectorInvertedIndex
-from query_parser import QueryIndexer
+from backend.Models.Vector_Model.vector_indexer import VectorIndexer, VectorInvertedIndex
+from backend.query_parser import QueryIndexer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 

@@ -1,6 +1,6 @@
 from ast import MatchOr
 import math
-from Trie.collection import Collection, Document
+from backend.Trie.collection import Collection, Document
 import numpy as np 
 from math import log10
 

@@ -1,6 +1,12 @@
+import environment
 def send_consult(consult):
     '''Buscar los ducumentos y por cada documento recuperado devolver un formato como este'''
-    return documents_to_json_list('uwu')
+    rank  = environment.Environment.matrix.get_rank_of_query(consult)
+    documents = []
+    for document,i in zip(rank,range(10)):
+        documents.append(document)
+
+    return documents_to_json_list(documents,consult)
 
 def document_to_json(consult,passage,link,tittle):
     return {'consult':consult,
@@ -8,12 +14,8 @@ def document_to_json(consult,passage,link,tittle):
             'link':link,
             'tittle': tittle}
 
-def documents_to_json_list(documents):
+def documents_to_json_list(documents,consult):
     result = []
-    # for document in documents:
-    #     result.append(document_to_json(lo del documento))
-    
-    for i in range (3):
-        result.append(document_to_json('Las palabras a marcar','un pedazo del texto donde esten varias palabras','link.pdf','titulo del documento'))
-    
+    for document in documents:
+        result.append(document_to_json(consult,document.body,"link.pdf",document.title))
     return result       

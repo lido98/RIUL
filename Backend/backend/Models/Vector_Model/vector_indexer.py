@@ -1,5 +1,5 @@
-from corpus_manager import Collection, Document
-from indexer import BaseIndexer, BaseInvertedIndex
+from backend.corpus_manager import Collection, Document
+from backend.indexer import BaseIndexer, BaseInvertedIndex
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer

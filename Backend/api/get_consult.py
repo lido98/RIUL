@@ -1,4 +1,5 @@
-import get_documents_api
+import api.get_documents_api
+import environment
 
 from typing import Union
 from fastapi import FastAPI
@@ -12,4 +13,5 @@ app.add_middleware(
 
 @app.get("/consult/{consult}")
 def read_item(consult:str, q: Union[str, None] = None):
-    return get_documents_api.send_consult(consult)
+    return api.get_documents_api.send_consult(consult)
+
