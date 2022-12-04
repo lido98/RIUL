@@ -7,7 +7,6 @@ import environment
 
 import time
 
-
 def main():
     print('\n Sistema de recuperación de información RIUL !!!')
     print('RIUL utiliza la colección CRAN para recuperar la información.\n')
