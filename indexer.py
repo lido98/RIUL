@@ -13,8 +13,6 @@ class BaseInvertedIndex(ABC):
     def __getitem__(self, term: str) -> Collection:
         pass      
 
-
-
 class BaseIndexer(ABC): 
     def __init__(self, docs: Collection):
         self.docs = docs        

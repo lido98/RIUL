@@ -1,6 +1,8 @@
-from collection import Document
-from ..Corpus.CRAN.cran_parser import CRANParser
-from trie import Trie, Collection, VectorialMatrix
+from corpus_manager import Document, Collection
+from Corpus.CRAN.cran_parser import CRANParser
+from Trie.trie import Trie, Collection, VectorialMatrix
+
+import time
 
 import re, string
 
@@ -9,13 +11,22 @@ def remove_punctuation ( text ):
   return re.sub('[%s]' % re.escape(string.punctuation), ' ', new_text)
 
 def main ():
+    t0 = time.time()
     trie = Trie(root = True)
     colection = CRANParser()()
+    t0 = time.time()
     trie.insert_collection(colection)
+    print(time.time()-t0)
     matrix = VectorialMatrix(trie)
-    rank = matrix.get_rank_of_query("leon leon leon perro zorro gato gato")
+    t0 = time.time()
+    rank = matrix.get_rank_of_query("an empirical evaluation of the destalling effects was made for the specific configuration of the experiment")
+    i = 0
     for doc in rank:
-        print (doc.title +" [id:"+str(doc.id)+"]"+ " >>> rank = " + str(rank[doc]))
+        print ("[id:"+str(doc.id)+"]"+ " >>> rank = " + str(rank[doc]))
+        i += 1
+        if i == 10:
+            break
+    print(time.time()-t0)
 
 def test_cases_trie():
     trie = Trie(root = True)

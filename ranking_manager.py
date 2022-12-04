@@ -4,6 +4,7 @@ from Models.Vector_Model.vector_indexer import VectorIndexer, VectorInvertedInde
 from query_parser import QueryIndexer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 class Ranking():
     def __init__(self, top):
@@ -15,6 +16,8 @@ class Ranking():
         query_doc = Document(0, 'query', query)
         #docs.__add__(query_doc)        
         si = VectorIndexer(docs)
+        import time
+        t0 = time.time()
         index = si()     
         
         docs_vec = []
@@ -35,20 +38,21 @@ class Ranking():
                 query_vec[i] = (a + (1-a)*qi.get_tf(term, qd))*index.get_idf(term)
             except:
                 continue
-        
+        print(time.time()-t0)
              
         
         
-           
+        t0 = time.time()   
         sim = []        
         
         #print(query_vec)
         for i in range(len(docs)):   
             #print(docs_vec[i])         
-            sim.append((i, self.sim(docs_vec[i],query_vec)))      
+            sim.append((i, sim(docs_vec[i],query_vec)))      
         
         sorted_filtered_doc_sim = sorted(list(filter(lambda t: t[1] > self.top, sim)), key= lambda x: x[1])
         list.reverse(sorted_filtered_doc_sim) #
+        print(time.time()-t0)
         return sorted_filtered_doc_sim                                 
         
     def sim(self, doc, query):
