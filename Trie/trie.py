@@ -171,16 +171,10 @@ class VectorialMatrix:
         a = 0.5
         N = self.total_documents
 
-        # vector_query = []
-        # for word in self.words:
-        #     n_i = len(self.trie.documents_of_word(word)) + 1
-        #     vector_query.append( a * log10(N/n_i))
-
         for word in freqs[0]:
             n_i = len(self.trie.documents_of_word(word))
-
             try: 
-                vector_query[self.index_word[word]] = (a *((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
+                vector_query[self.index_word[word]] = (a +((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
             except: pass
 
         rank = {}
