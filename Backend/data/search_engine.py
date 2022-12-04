@@ -1,6 +1,6 @@
-from indexer import InvertedIndex
-from query_parser import BaseQuery
-from corpus_manager import Document, Collection
+from data.indexer import InvertedIndex
+from data.query_parser import BaseQuery
+from data.corpus_manager import Document, Collection
 from abc import ABC, abstractmethod
 
 class BaseSearchEngine(ABC):

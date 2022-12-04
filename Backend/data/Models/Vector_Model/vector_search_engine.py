@@ -1,8 +1,8 @@
-from search_engine import BaseSearchEngine
-from indexer import InvertedIndex
-from corpus_manager import Collection
+from data.search_engine import BaseSearchEngine
+from data.indexer import InvertedIndex
+from data.corpus_manager import Collection
 import numpy as np
-from trie import Trie
+from data.trie import Trie
 from math import log10
 import time
 class VectorSearchEngine(BaseSearchEngine):
@@ -11,14 +11,14 @@ class VectorSearchEngine(BaseSearchEngine):
         self.docs = docs
         self.vectors = VectorMatrix(self.index.trie)
 
-    def __call__(self, raw_query: str, top: int = 0.50, a: int = 0.5) -> dict[Collection: float]:
-        #query = VectorQuery(raw_query)
-        #query_index = query.query_index
-                 
+    def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Collection: float]:
+        
         sim = self.vectors.get_rank_of_query(raw_query)  
               
         result = {}               
-        for doc in list(filter(lambda t: sim[t] > top, sim)):
+        for doc in sim:
+            if sim[doc]<=top:
+                break
             result[doc] = sim[doc]        
         return result        
         
@@ -30,10 +30,18 @@ class VectorMatrix:
         self.total_documents = trie.total_documents
         self.index_word = {}
         self.rank = {}
-        self.matrix = self.full_matrix(trie)
+        self.full_matrix_and_norms()
+        
+    def full_matrix_and_norms(self):
+        print("Se esta creando la matriz del modelo vectorial y las normas de cada vector, este proceso puede demorar unos segundos...")
+        import time
+        t0 = time.time()    
+        
+        self.matrix = self.full_matrix(self.trie)
         self.norms = {}
-
         self.full_norms()
+
+        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]")
 
     def full_matrix(self,trie:Trie):
         words = self.words

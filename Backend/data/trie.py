@@ -1,4 +1,4 @@
-from corpus_manager import Collection, Document
+from data.corpus_manager import Collection, Document
 from math import log10
 
 
@@ -21,8 +21,12 @@ class Trie:
             self.root = parent.root
     
     def __call__(self,collection:Collection):
+        print("Se esta insertando una coleccion en la estrutura Trie, esta accion puede tardar algunos segundos...")
+        import time
+        t0 = time.time()
         for document in collection.docs:
             self.insert_document(document, by_id = False)
+        print ("Se ha agregado una coleccion de documentos a la estructura correctamente.   ["+str(time.time()-t0) + " s]")
 
     def insert_document(self, document:Document, by_id = False):
         if by_id == True:
