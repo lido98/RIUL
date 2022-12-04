@@ -23,15 +23,17 @@ def test_cases_trie():
     text4 =  'leon leon leon zorro zorro zorro'
     text5 =   'nutria'
 
-    documents = [ Document(1,"tittle",text1),
-                  Document(2,"tittle",text2),
-                  Document(3,"tittle",text3),
-                  Document(4,"tittle",text4),
-                  Document(5,"tittle",text5)]
+    d1 = Document(1,"tittle",text1)
+    d2 = Document(2,"tittle",text2)
+    d3 = Document(3,"tittle",text3)
+    d4 = Document(4,"tittle",text4)
+    d5 = Document(5,"tittle",text5)
+
+    documents = [ d1,d2,d3,d4,d5]
 
     trie.insert_collection(Collection(documents))
     matrix = VectorialMatrix(trie)
-    rank = matrix.get_rank()
-    print (rank)
-
+    rank = matrix.get_rank_of_query("leon leon leon perro zorro gato gato")
+    for doc in rank:
+          print (str(doc.id) + " >>> rank = " + str(rank[doc]))
 main()

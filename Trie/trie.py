@@ -19,7 +19,7 @@ class Trie:
     
     def insert_collection(self,collection:Collection):
         for document in collection.docs:
-            self.insert_document(document, by_id = True)
+            self.insert_document(document, by_id = False)
     
     def insert_document(self, document:Document, by_id = False):
         if by_id == True:
@@ -131,7 +131,6 @@ class VectorialMatrix:
         self.index_word = {}
         self.rank = {}
         self.matrix = self.full_matrix(trie)
-        self.sim_list("leon leon leon perro zorro gato gato")
 
     def full_matrix(self,trie:Trie):
         words = self.words
@@ -167,28 +166,34 @@ class VectorialMatrix:
         freqs = self.freqs_in_query(query)
         
         from math import log10
-        vector_query = [0] * len(self.words) 
         
+        vector_query = [0] * len(self.words) 
         a = 0.5
-        N = self.total_documents + 1
+        N = self.total_documents
 
+        # vector_query = []
         # for word in self.words:
         #     n_i = len(self.trie.documents_of_word(word)) + 1
         #     vector_query.append( a * log10(N/n_i))
 
         for word in freqs[0]:
-            n_i = len(self.trie.documents_of_word(word)) + 1
+            n_i = len(self.trie.documents_of_word(word))
 
             try: 
                 vector_query[self.index_word[word]] = (a *((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
             except: pass
 
+        rank = {}
         for document,d in zip(self.matrix, range(len(self.matrix))):
-            self.rank[self.trie.documents[d]]= self.sim(document, vector_query)
+            rank[self.trie.documents[d]]= self.sim(document, vector_query)
+        return rank
 
     def sim (self, doc, query):
         import numpy as np 
         return np.dot(doc, query)/(np.linalg.norm(doc)*np.linalg.norm(query))    
     
-    def get_rank(self):
-        return self.rank
+    def get_rank_of_query(self,query):
+        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
+        result = dict(reversed(list(result)))
+        return result
+         
