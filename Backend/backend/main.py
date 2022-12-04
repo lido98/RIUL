@@ -16,14 +16,19 @@ def main():
     #region create trie
     
     Environment.trie.insert_collection(collection)
-    print("\nTarda " +str(time.time()-t0)+" para crear el trie.") 
+    print("\nEl trie ha sido creado correctamente.  [" +str(time.time()-t0)+"s]") 
 
     t1 = time.time()
     Environment.matrix = VectorialMatrix(Environment.trie)
-    print("\nTarda " +str(time.time()-t1)+" para crear la matriz.")
+    print("\nLa matriz del modelo vectorial ha sido creada correctament.e  [" +str(time.time()-t1)+"s]")
 
-    print("\nTarda " +str(time.time()-t0)+" para crear todo.") 
+    print("\nEl environment ha sido creado correctamente.  [" +str(time.time()-t0)+"s]") 
     
+    rank = Environment.matrix.get_rank_of_query("an empirical evaluation of the destalling effects was made for the specific configuration of the experiment")
+
+    # for doc,i in zip(rank,range(50)):
+    #     print(str(i)+". ___["+str(doc.id) +"] >>>> rank = " + str(rank[doc]))        
+
     
     
 
