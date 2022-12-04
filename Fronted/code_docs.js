@@ -76,6 +76,11 @@ function getAndCreateDocuments(consult){
             passage = passage.substring(0,maxChars)
             passage += '...'
         }
+        if (textLink.length > 70){
+            textLink = textLink.substring(0,70)
+            textLink += '...'
+        }
+        
 
         createDocSpace(doc,link, textLink,consult,passage)
 
