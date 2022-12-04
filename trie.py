@@ -1,4 +1,7 @@
-from Trie.collection import Collection, Document
+from corpus_manager import Collection, Document
+from math import log10
+
+
 class Trie:
     last_word = ""
     
@@ -17,10 +20,10 @@ class Trie:
         else:
             self.root = parent.root
     
-    def insert_collection(self,collection:Collection):
+    def __call__(self,collection:Collection):
         for document in collection.docs:
             self.insert_document(document, by_id = False)
-    
+
     def insert_document(self, document:Document, by_id = False):
         if by_id == True:
             self.insert_text(document.body, document.id)
@@ -30,10 +33,12 @@ class Trie:
     def insert_text(self,text,document_id = 'default'):
         '''Insert new docuement whit params `text` and a specified `document_id` if you want use many documents, without any document in another case,
         if you do not specify a 'document id', it is assumed to be a single document'''
+        
         if self.root.documents.__contains__(document_id) == False : 
             self.root.documents.append(document_id)
             self.root.index_document[document_id] = self.root.total_documents
             self.root.total_documents += 1
+
         words = text.split(" ") 
         for word,pos in zip(words,range(len(words))):
             Trie.last_word = word
@@ -44,7 +49,7 @@ class Trie:
         if len(word) > 0:
             self.insert_char_in_children(word[0],word,pos,document_id)
 
-    def insert_char_in_children(self,char,word,pos,document_id):        
+    def insert_char_in_children(self,char,word,pos,document_id):
         try : 
             node = self.childs[char]
             if len(word) == 1:
@@ -113,7 +118,6 @@ class Trie:
             return []
 
     def weight (self,word, document):
-        from math import log10
         node = self.last_node(word)
         if node != None:
             try:
@@ -122,76 +126,4 @@ class Trie:
                 return idf*tf
             except: return 0
         else:
-            return 0    
-class VectorialMatrix:
-    def __init__(self,trie:Trie):
-        self.trie = trie
-        self.words = trie.words
-        self.total_documents = trie.total_documents
-        self.index_word = {}
-        self.rank = {}
-        self.matrix = self.full_matrix(trie)
-
-    def full_matrix(self,trie:Trie):
-        words = self.words
-
-        matrix = []
-        
-        for i in range(trie.total_documents):
-            matrix.append([0] * len(words))
-
-        for word,w in zip(words, range(len(words))):
-            self.index_word[word] = w
-            documents = trie.documents_of_word(word)
-            for document in documents:
-                d = trie.index_document[document]
-                matrix[d][w] = trie.weight(word,document) 
-        return matrix        
-    
-    def get_matrix(self):
-        return self.matrix
-    
-    def freqs_in_query(self, query):
-        result = {}
-        max_count = 1
-        for term in query.split(" "):
-            try: 
-                result[term] +=1
-                max_count = max(max_count,result[term])
-            except: result [term] = 1
-            
-        return [result,max_count]
-
-    def sim_list(self, query):
-        freqs = self.freqs_in_query(query)
-        
-        from math import log10
-        
-        vector_query = [0] * len(self.words) 
-        a = 0.5
-        N = self.total_documents
-
-        for word in freqs[0]:
-            n_i = len(self.trie.documents_of_word(word))
-            try: 
-                #este metodo viejo es el que esta mal, se dejan de agregar valores a la querie por lo que su norma no es la real
-                vector_query[self.index_word[word]] = (a +((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
-            except: pass
-
-        rank = {}
-        for document,d in zip(self.matrix, range(len(self.matrix))):
-            rank[self.trie.documents[d]]= self.sim(document, vector_query)
-        return rank
-
-    def sim (self, doc, query):
-        import numpy as np 
-        num = np.dot(doc, query)
-        nD =np.linalg.norm(doc)
-        nQ=np.linalg.norm(query)
-        return num/(nD*nQ)    
-    
-    def get_rank_of_query(self,query):
-        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
-        result = dict(reversed(list(result)))
-        return result
-         
+            return 0

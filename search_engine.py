@@ -1,16 +1,16 @@
-from indexer import BaseInvertedIndex
+from indexer import InvertedIndex
 from query_parser import BaseQuery
 from corpus_manager import Document, Collection
 from abc import ABC, abstractmethod
 
 class BaseSearchEngine(ABC):
     @abstractmethod
-    def __init__(self, index: BaseInvertedIndex):
+    def __init__(self, index: InvertedIndex):
         self.index = index
         
 
     @abstractmethod  
-    def __call__(raw_query: str, top: int = 0.05) -> Collection:        
+    def __call__(raw_query: str, top: int = 0.1) -> dict[Collection: float]:        
         pass
 
 

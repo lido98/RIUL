@@ -1,25 +1,23 @@
-from corpus_manager import Collection, Document
+from corpus_manager import Collection
+from trie import Trie
 from abc import ABC, abstractmethod
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from nltk.stem.wordnet import WordNetLemmatizer
-from sklearn.feature_extraction.text import TfidfVectorizer
 import math
 
 
+class InvertedIndex: 
+    def __init__(self):
+        self.trie = Trie(root=True)       
 
-class BaseInvertedIndex(ABC):    
-    @abstractmethod
-    def __getitem__(self, term: str) -> Collection:
-        pass      
-
-class BaseIndexer(ABC): 
+class Indexer: 
     def __init__(self, docs: Collection):
         self.docs = docs        
-
-    @abstractmethod
-    def __call__(self) -> BaseInvertedIndex:
-        pass
+    
+    def __call__(self) -> InvertedIndex:
+        index = InvertedIndex()
+        index.trie(self.docs)
+        return index
 
     
     
