@@ -1,4 +1,4 @@
-from .corpus_manager import Collection, Document
+from corpus_manager import Collection, Document
 from abc import ABC, abstractmethod
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -12,12 +12,14 @@ class InvertedIndex:
         self.max_freq: dict[Document: int] = {} 
 
     def get_tf(self, term, doc):
-        return self.vocabulary[term][doc]/self.max_freq[doc]
+        tf = self.vocabulary[term][doc]/self.max_freq[doc]
+        return tf
 
     def get_idf(self, term):
-        return math.log(len(self.max_freq) / len(self.vocabulary[term]))
+        idf = math.log10(len(self.max_freq) / len(self.vocabulary[term]))
+        return idf
 
-    def get_weight(self, term, doc):
+    def get_weight(self, term, doc):        
         return self.get_tf(term, doc) * self.get_idf(term)
 
     def __len__(self) -> int:
@@ -35,29 +37,34 @@ class Indexer:
     
     def build_index(self) -> InvertedIndex:
         index = InvertedIndex()
-        vocabulary: dict[str: dict[Document: int]] = {}
-        max_freq: dict[Document: int] = {} 
+        vocabulary: dict[str: dict[Document: int]] = index.vocabulary
+        max_freq: dict[Document: int] = index.max_freq
 
         stop_words = set(stopwords.words('english'))
         
         for i in range(len(self.docs)):
             doc = self.docs[i]
-            term_bag, self.docs.docs[i] = self.extract_keywords(doc, stop_words)
+            term_bag, _ = self.extract_keywords(doc, stop_words)
+            #self.docs.docs[i]
+
 
             for term in term_bag:                
                 if term in vocabulary: 
                     term_dict = vocabulary[term]  
-                    if doc in term_dict:             
-                        term_dict[doc] += 1
-                        max_freq[doc] = max(max_freq[doc], term_dict[doc])
-                    else:                      
+                    try:             
+                        term_dict[doc] += 1                        
+                    except:                     
                         term_dict[doc] = 1
                         max_freq[doc] = 1                                             
                 else:
-                    vocabulary[term] = {doc : 1}
-                    max_freq[doc] = 1  
-        index.vocabulary = vocabulary         
-        index.max_freq = max_freq       
+                    vocabulary[term] = {doc : 1}                    
+                try:
+                    max_freq[doc] = max(max_freq[doc], term_dict[doc])
+                except:
+                    max_freq[doc] = 1 
+
+
+        
         return index
 
     def extract_keywords(self, doc: Document, stop_words: set) -> tuple[list[str], Document]:

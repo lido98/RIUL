@@ -1,4 +1,4 @@
-from ...corpus_manager import BaseCorpusParser
+from corpus_manager import BaseCorpusParser
 import pathlib
 import re
 
