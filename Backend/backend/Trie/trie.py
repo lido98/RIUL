@@ -1,6 +1,3 @@
-from ast import MatchOr
-import math
-from turtle import Screen
 from backend.Trie.collection import Collection, Document
 import numpy as np 
 from math import log10
