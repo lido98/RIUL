@@ -23,9 +23,10 @@ def main():
         print(str(docs[r[0]].id) + ' ' + docs[r[0]].title + ' ' + str(round(r[1],5))   + '\n')
     
       
-    
-if __name__ == '__main__':
-    main()
+from Trie.test_cases import test_cases_trie
+test_cases_trie()
+# if __name__ == '__main__':
+#     main()
 
 
 

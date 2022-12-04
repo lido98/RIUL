@@ -1,4 +1,9 @@
-from collection import Collection, Document
+from ast import MatchOr
+import math
+from Trie.collection import Collection, Document
+import numpy as np 
+from math import log10
+
 class Trie:
     last_word = ""
     
@@ -113,7 +118,6 @@ class Trie:
             return []
 
     def weight (self,word, document):
-        from math import log10
         node = self.last_node(word)
         if node != None:
             try:
@@ -131,6 +135,9 @@ class VectorialMatrix:
         self.index_word = {}
         self.rank = {}
         self.matrix = self.full_matrix(trie)
+        self.norms = {}
+
+        self.full_norms()
 
     def full_matrix(self,trie:Trie):
         words = self.words
@@ -165,29 +172,48 @@ class VectorialMatrix:
     def sim_list(self, query):
         freqs = self.freqs_in_query(query)
         
-        from math import log10
-        
-        vector_query = [0] * len(self.words) 
+        vector_query = []
         a = 0.5
         N = self.total_documents
 
+        query_list_index_value = []
+        by_norm_query = []
         for word in freqs[0]:
             n_i = len(self.trie.documents_of_word(word))
-            try: 
-                vector_query[self.index_word[word]] = (a +((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i))
+            try:
+                by_norm_query.append((a +((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i)))
+                word_index_value = self.index_word[word]
+                query_list_index_value.append(word_index_value)
+                vector_query.append((a +((1-a)*(freqs[0][word]/freqs[1])))* (log10(N/n_i)))
             except: pass
 
         rank = {}
-        for document,d in zip(self.matrix, range(len(self.matrix))):
-            rank[self.trie.documents[d]]= self.sim(document, vector_query)
+        
+        norm_query = np.linalg.norm(by_norm_query)
+        new_matrix = []
+        for i in range(self.total_documents):
+            new_matrix.append([])
+            for index in query_list_index_value:
+                value = self.matrix[i][index]
+                new_matrix[i].append(value)
+
+    
+        for document,d in zip(new_matrix, range(len(self.matrix))):
+            doc = self.trie.documents[d]
+            norm_doc = self.norms[doc]
+                
+            rank[doc]= self.sim(document, vector_query,norm_doc, norm_query) 
         return rank
 
-    def sim (self, doc, query):
-        import numpy as np 
-        return np.dot(doc, query)/(np.linalg.norm(doc)*np.linalg.norm(query))    
+    def sim (self, doc, query, norm_doc, norm_query):
+        num = np.dot(doc, query)
+        return num/(norm_doc*norm_query)    
     
+    def full_norms(self):
+        for doc,vector in zip(self.trie.documents, self.matrix):
+            self.norms[doc] = np.linalg.norm(vector)
+
     def get_rank_of_query(self,query):
         result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
         result = dict(reversed(list(result)))
         return result
-         
