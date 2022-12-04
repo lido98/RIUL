@@ -20,5 +20,5 @@ def document_to_json(consult,passage,link,tittle):
 def documents_to_json_list(documents,consult):
     result = []
     for document in documents:
-        result.append(document_to_json(consult,document.body,str(document.id) + ".txt",document.title))
+        result.append(document_to_json(consult,document.body,str(document.id) + ".txt","["+str(document.id) +"]  "+document.title ))
     return result       
