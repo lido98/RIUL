@@ -1,0 +1,835 @@
+
+.W
+on axially symmetric, turbulent, compressible mixing in the presence
+of initial boundary layer .
+recent experimental results have shown that the
+mixing of heterogeneous gases having an initial velocity
+ratio close to unity occurs faster than is predicted by classical
+eddy-viscosity theory .  the theoretical analysis of two uniform
+streams of different gases but of nearly equal velocity,
+performed with the usual assumptions for eddy viscosity and
+prandtl number equal to a constant, shows that mixing will
+take place very slowly, i.e., at the rate corresponding to
+laminar diffusion .  it has been suggested that the difference
+between analysis and experiment could be attributed to the
+presence of a boundary layer in the experiments .  it is the
+purpose of this note to show that the use of the classical
+eddy-viscosity law, admitting the existence of a boundary layer,
+is not sufficient to explain the rapid mixing that is observed
+physically .  instead, it is shown that rapid mixing can be
+explained on the basis of a different eddy-viscosity law, as
+was suggested in ref. 1 .  these conclusions are obtained
+through application of the analysis presented briefly below .
+.I 1373
+.T
+nose drag in free-molecule flow and its minimization .
+.A
+tan,h.s.
+.B
+j.ae.scs. 1959, 360.
+.W
+nose drag in free-molecule flow and its minimization .
+  the superaerodynamic nose drag of a body in a free-molecule
+flow involves two parameters ..  the speed ratio s between
+ordered and random molecular motions (modified mach
+number), and the temperature ratio between the solid surface
+and undisturbed gas .  simplifications of the drag formula are
+obtained at hypersonic as well as low-subsonic extremes .  to
+minimize the drag on a nose of specified length and base radius,
+the ordinary method of calculus of variation was found
+inadequate .  a generalized approach has, accordingly, been developed,
+and the specification of end conditions is discussed at length .
+  results of the present investigation indicate that in all cases
+an optimum nose requires a flat tip .  the optimum nose curve
+for the hypersonic extreme does not depend on the temperature
+ratio, but that for the low-subsonic extreme varies in the
+following manner ..  for a hot body the curve is convex,. for a cold body,
+concave .  an optimum solution exists in a restricted range of
+specification only .  with prescribed tip and base radii the
+admissible nose length is bounded below for the cases of hypersonic
+and low-subsonic hot body and bounded above for the case of
+low-subsonic cold body .  a vanishing tip radius leads to an
+infinitely long nose in the former and a vanishing nose in the latter
+case .
+  optimum nose curves for several temperature ratios at the
+low-subsonic extreme, as well as the one for hypersonic extreme, are
+presented .  it is observed that at the low-subsonic extreme, with,
+the hot-body solution asymptotically approaches
+the hypersonic solution--i.e., a slender conventional warhead
+with a flat tip,. whereas with, the cold-body solution
+asymptotically approaches the minimal-surface solution--i.e.,
+tip radius, a flat disc .
+.I 1374
+.T
+theoretical analysis of turbulent mixing of reactive
+gases with application to supersonic combustion of
+hydrogen .
+.A
+libby,p.a.
+.B
+ars jnl. 32, 1962, 388.
+.W
+theoretical analysis of turbulent mixing of reactive
+gases with application to supersonic combustion of
+hydrogen .
+  the turbulent mixing of an axisymmetric jet of a
+reactive gas is considered .  by assuming a
+convenient model for the compressible eddy viscosity,
+the momentum equation is reduced to a form
+amenable to approximate solution .  the resulting
+velocity distribution in both incompressible and
+compressible flows is in reasonable agreement with
+experiment .  the usual assumptions with
+respect to chemical behavior, namely either frozen or
+equilibrium flow, and to unity lewis numbers
+and prandtl number are employed .  the theoretical
+results for chemical equilibrium are shown
+to be in reasonable agreement with experimental data
+from low speed hydrogen flames .  a
+numerical example of interest in connection with a hypersonic,
+air breathing vehicle is carried out in detail .
+.I 1375
+.T
+an approximate solution for the axisymmetric jet of a laminar
+compressible fluid .
+.A
+gdalia kleinstein
+.B
+polytechnic institute of brooklyn
+.W
+an approximate solution for the axisymmetric jet of a laminar
+compressible fluid .
+an extension of the modified-oseen method of carrier, based on the
+linearization of the viscous term of the von mises transformation,
+is presented .  the method is employed to determine the velocity field
+associated with the laminar axisymmetric jet flow of a compressible
+gas with an arbitrary but constant external flow .  the approximate
+solution is shown to be in good agreement with the exact numerical
+calculation of pai .
+in many boundary layer problems it is not possible to make the
+assumption of flow similarity .  the solution in these cases can be
+obtained either by laborious finite difference techniques or by
+resort to approximate solutions .  carrier and lewis (1), and more
+recently carrier (2), have suggested a method of obtaining approximate
+solutions to problems involving convection and diffusion .  this
+method, termed by carrier /the modified-oseen method/, overcomes an
+essential difficulty of integral methods, namely, the generation of
+reasonable profiles .  it is well known that the integral method gives
+accurate results only if the analytical profiles represent closely
+the true profiles .  according to the modified-oseen method the
+convective operator in the original partial differential equation
+is replaced by a linear one .  the resulting equation for the
+boundary layer problem is the heat conduction equation which can be
+treated by well-known techniques .
+it is the purpose of this paper to indicate a modification of this
+procedure and to demonstrate its simplicity and accuracy by treating the
+axisymmetric laminar flow of a compressible gas with arbitrary but
+constant external flow .  the modification is based on the use of the
+von mises transformation with a subsequent linearization of the viscous
+term, rather than the linearization of the convective term . pai's
+problem (3), originally treated by a finite difference technique,
+is considered to illustrate the effectiveness of this method .
+.I 1376
+.T
+some applications in physics of the p-function .
+.A
+masters,j.i.
+.B
+j.chem.phys. 23, 1955, 1865.
+.W
+some applications in physics of the p-function .
+  the mathematical background and typical applications
+in physics are presented for a recently tabulated
+function .  because of its properties, the p function should
+prove to be a useful aid in the solution of certain
+problems in applied mathematics involving surface
+integrations in cylindrical coordinates .  a tabulation of
+the function in its normalized form is appended .
+particular attention is paid to the application of the p
+function to multiple scattering problems involving
+circular symmetry .
+.I 1377
+.T
+theoretical investigation of the flow field about blunt
+nosed bodies in supersonic flight .
+.A
+vaglio-laurin,r. and ferri,a.
+.B
+j. ae. scs. 25, 1958, 761.
+.W
+theoretical investigation of the flow field about blunt
+nosed bodies in supersonic flight .
+  a numerical method ofr obtaining the solution to the inverse
+problem of the flow behind a given detached shock to any desired
+accuracy is presented .  the cases of zero and small incidence
+are considered .  the combination of sets of such solutions
+satisfying prescribed boundary conditions (body shapes) is described .
+particular attention is devoted to the analysis of the sonic and
+subsonic region of the flow field .  convergence and stability of
+the stepwise integration from the shock in the elliptic region are
+discussed .  numerical examples are also included .
+.I 1378
+.T
+blunt-cone pressure distributions at hypersonic mach numbers .
+.A
+andrew f. burke and james t. curtis
+.B
+head, research section, and research aerodynamicist, respectively,
+applied hypersonic research dept., cornell aeronautical laboratory,
+inc., buffalo, n.y.
+.W
+blunt-cone pressure distributions at hypersonic mach numbers .
+the static pressure distributions on the surface of a
+blunted 7.5 degree-half-angle cone have recently been experimentally
+determined in the cal 48 inch hypersonic shock tunnel .  this
+facility and the associated instrumentation are described in detail
+in ref. 1 .  these tests covered a mach number range of 8 to 18
+at a reynolds number per foot of approximately 1 times 10 to the 5th
+power., the models included one flat-faced cone and two hemispherically
+blunted cones .
+.I 1379
+.T
+hypersonic flight and the re-entry problem .
+.A
+allen, h.j.
+.B
+j. aerospace sce. 25, 217-227, 1958 .
+.W
+hypersonic flight and the re-entry problem .
+paper reviews the possibilities and some of the main problems of three
+types of long-range vehicle, the ballistic, the glide, and the skip
+rocket . performance assessments are made on the basis of an ingenious,
+if debatable, conversion of the vehicle characteristics to the breguet
+formula . the problems of aerodynamic heating, aerodynamic loads and
+stability are briefly discussed, and other aspects of hypersonic flight
+free molecule flow-dash are touched upon . the results on the whole
+favor the glide vehicle for manned flight . the subsequent discussion
+on the paper includes references to multistaging and the use of
+high-energy fuels .
+.I 1380
+.T
+the problem of obtaining high lift-drag ratios at supersonic speeds .
+.A
+clinton e. brown and francis e. mclean
+.B
+langley research center, nasa
+.W
+the problem of obtaining high lift-drag ratios at supersonic speeds .
+the importance of the lift to drag ratio is well
+known to all aircraft designers since it gives, to a
+great extent, the aerodynamic efficiency of the airplane .
+aerodynamic efficiency, however, is only one
+component of the grand compromise that a completed
+airplane represents .  at subsonic speeds, lift-drag
+ratios of well over 200 have been measured in wind
+tunnels on airfoil sections., but few powered aircraft
+have attained (lift to drag ratio) value of 20 .  it is invariably true
+that the requirements of stability and control, structure,
+and flight operation all contribute to reducing the
+design (lift to drag ratio) considerably below those exotic values
+which can be predicted from unrestricted aerodynamic
+theory .  if, however, a certain range or operating
+efficiency is required, there is most certainly a minimum
+if we examine the range equation we see that range is
+proportional to the lift-drag ratio, the thermopropulsive
+efficiency, and the logarithm of the initial to final
+weight ratio .  the appearance of the lift-drag ratio as a
+linear factor in the range equation indicates that every
+attempt should be made to increase (lift to drag ratio)., however,
+the search for higher (lift to drag ratio) may lead to strange
+and unorthodox configurations .  most frequently, such
+configurations are ruled out by the adverse effects of
+their geometry on the weight ratios .  in the present
+paper, we will deal with the maximum lift-drag ratio
+problem for conventional configurations having a wing
+and a body in close proximity to each other .  no attempt
+will be made to select a particular configuration
+as being the best .  however, the promising direction
+to go from the aerodynamic view will be stressed with
+the understanding that the other factors may outweight
+the aerodynamics .
+.I 1381
+.T
+effect of mach number on boundary layer transition
+in the presence of pressure rise and surface roughness
+on an ogive-cylinder body with cold wall conditions .
+.A
+carros,r.j.
+.B
+naca rm a56b15, 1956.
+.W
+effect of mach number on boundary layer transition
+in the presence of pressure rise and surface roughness
+on an ogive-cylinder body with cold wall conditions .
+  the effect of mach number variation
+from 1.8 to 7.4 on boundary-layer
+transition was investigated on a slender
+fin-stabilized ogive-cylinder
+body in free flight at a constant length
+reynolds number of 13.8 million .
+the wall to free-stream temperature ratio
+was constant at a value of 1.0
+below mach number 4.5 and at a value of
+of the test showed that increasing mach
+number had a very favorable effect
+of increasing the extent of the laminar
+boundary layer for a given surface
+roughness .  the transition data, when
+plotted as a function of a factor
+indicative of heat transfer, showed that
+heat transfer was possibly
+responsible for a good deal of the increase in
+transition reynolds number with
+mach number .
+  transition was found to occur
+farther forward on the sheltered side
+of the body than on the windward side
+for angles of attack as low as 0.4
+and for all mach numbers .  the pressure
+rise along sheltered-side
+stream-lines was examined and it was found
+that the pressure-rise coefficient
+at the transition point, showed no
+variation with mach number .  data from
+other sources for different test
+conditions, when reduced to values of
+pressure-rise coefficient, were also
+found to correlate well with that of
+the present investigation with the
+exception of data at low subsonic mach
+numbers .  these present results also
+show that mach number, surface
+roughness, pressure rise, and length reynolds
+number all affected boundary-layer
+transition in the region of theoretical
+infinite laminar stability to
+small two-dimensional disturbances as
+calculated for a flat plate with
+zero pressure gradient .
+.I 1382
+.T
+the solution of the equations of the laminar boundary
+layer for schubauer's observed pressure distribution
+for an elliptic cylinder .
+.A
+hartree,d.r.
+.B
+arc r + m.2427, 1949.
+.W
+the solution of the equations of the laminar boundary
+layer for schubauer's observed pressure distribution
+for an elliptic cylinder .
+  the solution of the equations of the laminar
+boundary layer has been carried out for the pressure
+distribution for an elliptic cylinder of axial ratio 2.96 ..  1 with
+its major axis in the direction of the incident stream .
+the solution has been obtained by the method of hartree and
+womersley .  in applying this method the derivatives
+parallel to the boundary are replaced by finite differences, so
+that the partial differential equation of the boundary
+layer is replaced by an ordinary equation relating the velocity
+distribution through the boundary layer at one section
+to that at another, at an interval upstream .  by two independent
+integrations covering the same range by finite intervals
+of different sizes, it is possible to estimate the errors
+involved in replacing the derivatives by finite differences,
+and so to correct for these errors .
+  the process of solution requires the values of the pressure
+gradient along the solid boundary, and there is a certain
+tolerance in the derivation of the pressure gradient distribution
+from a limited number of observed values of pressure .
+an analysis of schubauer's pressure distribution is outlined, and
+the results were used for the main solution calculated .
+it is found that the solution, for the distribution of pressure gradient
+so derived, does not give separation of the boundary
+layer from the solid boundary, whereas the actual flow does separate .
+  it is found that the calculated solution is very sensitive to
+the pressure distribution, and a comparatively small
+modification of the pressure distribution gives a solution which
+does indicate separation close to the point at which
+separation is observed to occur .  the solution with this pressure
+distribution also gives very good agreement with the
+observed velocity distribution through the boundary layer at
+points upstream from separation .
+.I 1383
+.T
+on the theory of laminar boundary layer involving separation .
+.A
+vonkarman,t. and millikan,c.b.
+.B
+naca r.504, 1934.
+.W
+on the theory of laminar boundary layer involving separation .
+  the paper presents a mathematical discussion of the
+laminar boundary layer, which was developed with a view
+of facilitating the investigation of those boundary layers
+in particular for which the phenomenon of separation
+occurs .  the treatment starts with a slight modification of
+the form of the boundary layer equation first published by
+von mises .  two approximate solutions of this equation
+are found, one of which is exact at the outer edge of the
+boundary layer while the other is exact at the wall .  the
+final solution is obtained by joining these two solutions
+at the inflection points of the velocity profiles .  the final
+solution is given in terms of a series of universal functions
+for a fairly broad class of potential velocity distributions
+outside of the boundary layer .  detailed calculations of
+the boundary layer characteristics are worked out for the
+case in which the potential velocity is a linear function of
+the distance from the upstream stagnation point .  finally
+the complete separation point characteristics are
+determined for the boundary layer associated with a potential
+velocity distribution made up of two linear functions of
+the distance from the stagnation point .  it appears that
+extensions of the detailed calculations to more complex
+potential flows can be fairly easily carried out by using
+the explicit formulae given in the paper .
+.I 1384
+.T
+a theoretical calculation of the laminar boundary layer
+around an elliptic cylinder and its comparison with
+experiment .
+.A
+millikan,c.b.
+.B
+j. ae. scs. 3, 1936, 91.
+.W
+a theoretical calculation of the laminar boundary layer
+around an elliptic cylinder and its comparison with
+experiment .
+the author, in conjunction with th. von karman,
+has recently given a new method of approximate
+integration of the prandtl boundary layer equations,
+which was developed in order to treat cases in which
+separation of a laminar boundary layer might be
+expected .  the method was developed because some doubt
+was felt as to the accuracy with which the well-known
+pohlhausen analysis would describe conditions in the
+neighborhood of such a separation point .  numerical
+calculations were carried out for certain cases involving
+theoretical simplifications, and very considerable
+discrepancies were found between the results of the new
+and pohlhausen methods .  the method was also used
+in developing a theory for the maximum lift coefficient
+of certain classes of airfoils .  this theory gave
+satisfactory agreement with experiment but no direct
+experimental check on the boundary layer analysis itself has
+been given up to the present .
+.I 1385
+.T
+air flow in a separating laminar boundary layer .
+.A
+schubauer,g.b.
+.B
+naca r.527, 1935.
+.W
+air flow in a separating laminar boundary layer .
+  the speed distribution in a laminar boundary layer on
+the surface of an elliptic cylinder, of major and minor
+axes 11.78 and 3.98 inches, respectively, has been
+determined by means of a hot-wire anemometer .  the direction
+of the impinging air stream was parallel to the major axis .
+special attention was given to the speed distribution in
+the region of separation and to the exact location of the
+point of separation .  an approximate method, developed
+by k. pohlhausen for computing the speed distribution,
+the thickness of the layer, and the point of separation, is
+described in detail,. and speed-distribution curves
+calculated by this method are presented for comparison with
+experiment .  good agreement is obtained along the
+forward part of the cylinder, but pohlhausen's method fails
+shortly before the separation point is reached and
+consequently cannot be used to locate this point .
+  the work was carried out at the national bureau of
+standards with the cooperation and financial assistance
+of the national advisory committee for aeronautics .
+.I 1386
+.T
+analysis and calculation by integral methods of laminar
+compressible boundary layer with heat transfer and
+with and without pressure gradient .
+.A
+morduchow,m.
+.B
+naca r.1245, 1955.
+.W
+analysis and calculation by integral methods of laminar
+compressible boundary layer with heat transfer and
+with and without pressure gradient .
+  a survey of integral methods in laminar-boundary-layer
+analysis is first given .  a simple and sufficiently accurate
+method for practical purposes of calculating the properties
+layer in an axial pressure gradient with heat transfer at the
+wall is then presented .  for flow over a flat plate, the method
+is applicable for an arbitrarily prescribed distribution of
+temperature along the surface and for any given constant
+prandtl number close to unity .  for flow in a pressure gradient,
+the method is based on a prandtl number of unity and a uniform
+wall temperature .  a simple and accurate method of
+determining the separation point in a compressible flow with an adverse
+pressure gradient over a surface at a given uniform wall
+temperature is developed .  the analysis is based on an extension of
+the karman-pohlhausen method to the momentum and thermal
+energy equations in conjunction with fourth- and especially
+higher degree velocity and stagnation-enthalpy profiles .  from
+the equations derived here, conclusions regarding the effect of
+pressure gradient, mach number, and wall temperature on the
+boundary-layer characteristics are derived and illustrated .  in
+particular the effects on skin-friction, heat-transfer coefficient,
+separation point in an adverse pressure gradient, and stability
+of the laminar boundary layer are analyzed .
+.I 1387
+.T
+the buckling of a square panel under shear, when one
+pair of opposite edges is clamped and the other pair
+is simply supported .
+.A
+leggett,d.m.a.
+.B
+arc r + m.1991, 1941.
+.W
+the buckling of a square panel under shear, when one
+pair of opposite edges is clamped and the other pair
+is simply supported .
+  reasons for investigation.--for an efficient design
+of spar with thin sheet web it is important to know
+the load which will just cause the web to buckle .  as stiffeners
+divide the web into panels, it is required to find the
+buckling stress of rectangular panels bounded on two sides by
+spar flanges and on the other two sides by stiffeners .
+boundary conditions which represent closely this type of edge
+fixing are clamping (along the flanges) and simple support
+critical shear stress for a square panel held in this way .
+  conclusions and further development.--it is found that the
+value of the critical shear stress is almost midway between
+its values when all four edges are clamped and all four edges
+are simply supported .
+  the method of solution developed in this report is of very
+general application, and can be used to investigate the
+stability of rectangular panels when the loading is any combination
+of shear and compression or tension, and the edges
+are clamped or simply supported, and not necessarily all clamped
+or all simply supported .  by an easy extension the
+method of solution can also be used to find the periods of transverse
+vibration of rectangular panels for the same types
+of loading and edge fixing .
+.I 1388
+.T
+a process for the step-by-step integration of differential
+equations in an automatic digital computing machine .
+.A
+gills,s.
+.B
+proc. cam. phil. soc. 47, 1951, 96.
+.W
+a process for the step-by-step integration of differential
+equations in an automatic digital computing machine .
+  it is advantageous in automatic
+computers to employ methods of integration
+which do not require preceding function values
+to be known .  from a general theory given by
+kutta, one such process is chosen giving
+fourth-order accuracy and requiring the minimum
+number of storage registers .  it is developed into
+a form which gives the highest attainable
+accuracy and can be carried out by comparatively
+few instructions .  the errors are studied and
+a simple example is given .
+.I 1389
+.T
+numerical construction of detached shock waves .
+.A
+garabedian,p.r.
+.B
+j.math.phys. 36, 1957, 192.
+.W
+numerical construction of detached shock waves .
+  this article proposes a new method for solving the problem
+of the detached shock wave .  if the shock wave is assumed
+known, a cauchy problem for a system of partial differential
+equations arises .  this has been solved by several authors
+in the region where the system is elliptic (near the peak of
+the shock wave) .  considering the plane stationary case, the
+author seeks an analytic continuation of the propagation
+function (x,y) in the complex plane y = y1 + y2, x real .
+in the plane (x, y2) the propagation function satisfies a
+hyperbolic equation (near the peak of the shock wave) .  a
+new cauchy problem is solved and the solution of the original
+problem obtained by analytic continuation .  a numerical
+example is treated with many details .
+.I 1390
+.T
+on the numerical calculation of detached bow shock
+waves in hypersonic flow .
+.A
+garabedian,p.r. and liebersten,h.m.
+.B
+j. ae. scs. 25, 1958, 109.
+.W
+on the numerical calculation of detached bow shock
+waves in hypersonic flow .
+  a method is described for calculating examples of hypersonic
+flow with a detached bow shock wave past a bluff axially
+symmetric body .  the form of the shock wave is assumed, and the
+analysis is based on a cauchy problem for the stream function
+in the subsonic region, where the motion is governed by a
+partial differential equation of elliptic type .  through analytic
+continuation into the complex domain, the cauchy problem is
+reformulated in such a manner that it becomes properly set in the
+subsonic region .  this leads to a stable scheme for computation
+of the flow by finite differences .  numerical examples at
+freestream mach number 5.8 are presented in which the flow is
+determined throughout the subsonic region, and, in particular, the
+detachment distance, the location of the sonic line, and the
+pressure distribution along the body are calculated .  these results are
+in excellent agreement with experimental data obtained at the
+california institute of technology .
+.I 1391
+.T
+shock wave and flow field development in hypersonic re-entry .
+.A
+probstein, r.f.
+.B
+ars. j. 31, 185-194, 1961 .
+.W
+shock wave and flow field development in hypersonic re-entry .
+a study is made of when and how a shock wave and continuum-type flow
+field develop in the nose region of a highly cooled blunt body re-
+entering the atmosphere at hypersonic speed and in a free molecular flow
+regime . the various types of flow regimes encountered down to low
+altitude conditions are delineated, and the nature of the flow field and
+behavior of some of the aerodynamic characteristics are discussed . it
+is shown that for a highly cooled body, free molecule flow conditions
+occur at a higher altitude than previously indicated . based on
+available evidence, it is suggested that kinetic theory solutions, which are
+essentially modified free molecule results, along with the navier-stokes
+ equations with no surface slip, serve to define all of the flow regimes
+ except for a narrow transitional layer regime which has a height of
+less than one factor of 10 in free stream density change . it is also
+suggested that the appearance of a definable shock wave occurs very
+rapidly in terms of density change near the beginning of the
+transitional layer regime, and that its location, as in continuum flow, is
+governed principally by the body geometry, whereas its thickness is
+determined by a local mean free path .
+.I 1392
+.T
+the solution of small displacement, stability or vibration
+problems concerning a flat rectangular panel when the
+edges are either clamped or simply supported .
+.A
+hopkins,h.g.
+.B
+arc r + m.2234, 1945.
+.W
+the solution of small displacement, stability or vibration
+problems concerning a flat rectangular panel when the
+edges are either clamped or simply supported .
+  this report describes an energy method for
+the exact solution of problems concerning the small
+displacements, stability or vibration of a flat rectangular panel
+when the edges are either clamped or simply supported .
+the influence of stiffeners which are parallel to one pair of edges,
+and situated in pairs on opposite sides of the panel
+so that the neutral axis of each stiffener pair lies in the middle
+surface of the panel, is taken into account .  the method
+is not only applicable to isotropic panels but also to aeolotropic
+panels when the material of the panel has two directions
+of elastic symmetry parallel to the edges .
+  the final solution of the problems depends on an infinite set of
+linear equations for small displacement problems or on
+an infinite determinantal equation for stability and vibration
+problems .  the important feature of the analysis given is
+that it enables a direct approach to be made to these equations
+in any particular problem .  it is not in general possible
+to obtain a direct solution of the final equations and it is
+necessary to approximate and consider a finite set of linear
+equations or a finite determinantal equation derived from the
+more important terms in the analytical expression for the
+transverse displacement of the panel .  here, physical intuition
+and, if available, experimental data serve as a guide and
+the accuracy of the final results so obtained is gauged by the
+rate of convergence with the increase in the number of
+terms considered .
+  the general method of solution is applied first to the free
+vibration of a square panel when all the edges are clamped,
+and second to the buckling of a square panel under shear when
+three edges are clamped and one edge is simply supported .
+.I 1393
+.T
+heat transfer near the forward stagnation point of
+a body of revolution .
+.A
+sibulkin,m.j.
+.B
+j. ae. scs. 19, 1952, 570.
+.W
+heat transfer near the forward stagnation point of
+a body of revolution .
+in order to determine the temperature distribution over a
+body moving through the atmosphere, a knowledge of the
+local heat-transfer coefficients is required .  for slender
+sharp-nosed bodies, the heat-transfer coefficients are frequently
+approximated by using the comparable flat-plate values .
+however, for blunt-nosed bodies, flat-plate solutions are not
+applicable near the forward stagnation point .  since the greatest rate
+of heat transfer may occur at the forward stagnation point, its
+value should be investigated .  in this note a theoretical solution
+is given for the heat transfer near the forward stagnation point of
+a body of revolution assuming laminar, incompressible, low-speed
+flow .  the comparable solution for two-dimensional flow has
+been given by squire .  in the case of a blunt-nosed body moving
+with supersonic velocity, the flow behind the central portion of
+the bow wave is subsonic, and it is possible that a low-speed
+solution, using as /free-stream/ conditions those behind the center
+of the bow wave, will apply near the stagnation point .
+.I 1394
+.T
+stagnation point heat transfer measurements in hypersonic
+low density flow .
+.A
+neice,s.e., rutkowski,r.w. and chann,k.k.
+.B
+j. ae. scs.27, 1960, 387.
+.W
+stagnation point heat transfer measurements in hypersonic
+low density flow .
+in hypersonic, low reynolds number flow around a blunt body,
+the boundary-layer thickness approaches the shock-layer
+thickness (shock standoff distance) within the region of
+continuum flow .  in this instance, the customary boundary-layer
+approximations no longer apply .  hoshizaki and probstein
+have obtained solutions to the incompressible navier-stokes
+equations in the stagnation region of a blunt body in this
+hypersonic low reynolds number flow .  the results indicate that
+heat-transfer rates are substantially higher than those predicted by
+incompressible boundary-layer theory .  probstein indicated that
+the actual heat-transfer rates would be correspondingly higher
+than the predictions of fay and riddell .  these findings are of
+particular importance in the atmospheric entry phase of
+recoverable satellites .
+.I 1395
+.T
+low density stagnation point heat transfer measurements
+in the hypersonic shock tunnel .
+.A
+wilson,m.r. and wittliff,c.e.
+.B
+ars jnl. 32, 1962, 275.
+.W
+low density stagnation point heat transfer measurements
+in the hypersonic shock tunnel .
+  presents absolute heat-transfer measurements, using resistance
+thermometer, for hemisphere-cylinder at mach numbers 9.2 to 11.2 .
+results show vorticity-interaction and viscous-layer effects
+increase heat transfer above values predicted by boundary-layer
+theory .  data are correlated using cheng's reynolds-number-
+dependent parameter .  investigation covers vorticity-interaction to
+incipient-merged-layer regimes (free-stream unit reynolds numbers
+.I 1396
+.T
+shear buckling of clamped and simply-supported infinitely
+long plates reinforced by transverse stiffeners .
+.A
+cook,i.t. and rockey,k.c.
+.B
+aero. quart. 13, 1962, 41.
+.W
+shear buckling of clamped and simply-supported infinitely
+long plates reinforced by transverse stiffeners .
+  the paper presents a solution to the buckling of infinitely long
+plates clamped along the edges, together with an extension of the
+solution obtained by stein and fralich for the case when the edges are
+simply-supported .  it is shown that, as a consequence of increasing the
+edge support from that of a simple support to one in which both
+deflection and rotation are prevented, the rigidity which an
+intermediate transverse stiffener must possess in order to support the
+plate effectively is much reduced .  agreement between the theoretical
+relationships and existing experimental data is good .
+.I 1397
+.T
+critical shear stress of an infinitely long simply
+supported plate with transverse stiffeners .
+.A
+stein,m. and fralich,r.w.
+.B
+naca tn.1851, 1949.
+.W
+critical shear stress of an infinitely long simply
+supported plate with transverse stiffeners .
+  a theoretical solution is given for the critical shear stress of
+an infinitely long, simply supported, flat plate with identical, equally
+spaced, transverse stiffeners of zero torsional stiffness .  results are
+obtained by means of the lagrangian multiplier method and are presented
+in the form of design charts .  experimental results are included and
+are found to be in good agreement with the theoretical results .
+.I 1398
+.T
+stability of rectangular plates under shear and bending
+forces .
+.A
+way,s.
+.B
+j. app. mech. 3, 1936, a131.
+.W
+stability of rectangular plates under shear and bending
+forces .
+  the author first discusses the problem of a plane, simply
+supported rectangular plate loaded by shearing forces in
+the plane of the plate on all four edges .  there are two
+stiffeners attached one third and two thirds of the way
+along the plate .  the critical load is calculated for various
+stiffener rigidities .  also, the rigidity necessary to keep
+the stiffeners straight when the plate buckles is found .
+this stiffener rigidity is found to be slightly larger than
+that necessary for a plate with one stiffener and the same
+panel dimensions as the plate with two stiffeners .
+  the second problem discussed by the author is that of a
+plane, simply supported rectangular plate loaded by
+uniformly distributed edge shearing forces in the plane of the
+plate and linearly distributed tension and compression in
+the plane of the plate at the ends .  the end forces vary
+from tension, at one corner to, at the other corner,
+so that their resultant is a bending moment .  the
+presence of the edge shearing forces is found to diminish the
+critical bending stress in this case .  calculations are made
+for various magnitudes of bending and shearing forces for
+plates of various proportions .
+.I 1399
+.T
+buckling of transverse stiffened plates under shear .
+.A
+wang,t.k.
+.B
+j.app.mech. 3,1947, a269.
+.W
+buckling of transverse stiffened plates under shear .
+  this paper presents an analysis of buckling of simply
+supported rectangular plates reinforced by any number of
+transverse stiffeners and subjected to shearing forces
+uniformly distributed along the edges .  two cases are
+considered ..  (a) the case of a plate with a finite length,.
+ing stresses in both cases are expressed in similar forms,
+that is, in equation (13), and
+k in equation (24), respectively .  design
+curves are drawn as shown in figs. 2,3, and 5 .
+.I 1400
+.T
+the buckling shear stress of simply-supported infinitely
+long plates with transverse stiffeners .
+.A
+kleeman,p.w.
+.B
+arc r + m.2971, 1953.
+.W
+the buckling shear stress of simply-supported infinitely
+long plates with transverse stiffeners .
+  this report is an extension of previous theoretical
+investigations of the elastic buckling in shear of flat
+plates reinforced by transverse stiffeners . the plates are treated
+as infinitely long and simply-supported along the long
+sides . stiffeners are spaced at regular intervals, dividing the plate
+into a number of panels of uniform size . the effect
+ob bending and torsional stiffnesses of the stiffener upon the buckling
+shear stress is calculated for the complete range
+of stiffnesses, for panels with ratios of width to stiffener spacing of
+graphical forms .
