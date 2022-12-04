@@ -11,14 +11,14 @@ class VectorSearchEngine(BaseSearchEngine):
         self.docs = docs
         self.vectors = VectorMatrix(self.index.trie)
 
-    def __call__(self, raw_query: str, top: int = 0.50, a: int = 0.5) -> dict[Collection: float]:
-        #query = VectorQuery(raw_query)
-        #query_index = query.query_index
-                 
+    def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Collection: float]:
+        
         sim = self.vectors.get_rank_of_query(raw_query)  
               
         result = {}               
-        for doc in list(filter(lambda t: sim[t] > top, sim)):
+        for doc in sim:
+            if sim[doc]<=top:
+                break
             result[doc] = sim[doc]        
         return result        
         

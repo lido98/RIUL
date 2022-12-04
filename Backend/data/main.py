@@ -25,8 +25,8 @@ def main():
         case 'vector':            
             index = Indexer(docs)()
             environment.Environment.index = index
-            search_engine = VectorSearchEngine(index,docs)
-            environment.Environment.search_engine = search_engine
+            environment.Environment.search_engine = VectorSearchEngine(index,docs)
+   
 if __name__ == '__main__':
     main()
 
