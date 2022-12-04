@@ -1,9 +1,10 @@
 from ast import MatchOr
 import math
+from turtle import Screen
 from backend.Trie.collection import Collection, Document
 import numpy as np 
 from math import log10
-
+from environment import Environment
 class Trie:
     last_word = ""
     
@@ -23,9 +24,25 @@ class Trie:
             self.root = parent.root
     
     def insert_collection(self,collection:Collection):
+        cicle = len(collection)/100
+        count = 0
+        porc = 0.5
+        text_porc = "0%"
+        Environment.console = []
+        Environment.console.append("Creando Estructura Trie\n")
+        Environment.console.append("." * 100 )
+        Environment.console.append(text_porc)
+
         for document in collection.docs:
             self.insert_document(document, by_id = False)
-    
+            
+            count +=1/len(collection)
+            if count > 0.01 * porc:
+                Environment.console[1] = "#" + Environment.console[1][:len(Environment.console[1])-1]
+                porc+=1 
+                Environment.console[2] = str(int(porc)) + "%"
+                Environment.reset_console()
+
     def insert_document(self, document:Document, by_id = False):
         if by_id == True:
             self.insert_text(document.body, document.id)

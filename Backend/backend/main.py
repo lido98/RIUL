@@ -7,10 +7,13 @@ from backend.Trie.trie import Trie, VectorialMatrix
 from environment import Environment
 
 def main():
-    print('Bienvenido al sistema de recuperación de información RIUL !!!')
+    print('\n Sistema de Recuperación de Información RIUL !!!\n')
     print('RIUL utiliza la colección CRAN para recuperar la información.\n')
+    print('El proceso de crear las estructuras de almacenamiento esta ejecucion, este proceso puede tardar unos segundos.\n')
+
     Environment.trie = Trie(root = True)
     collection = CRANParser()()
+    
     import time
     t0 = time.time()
     #region create trie
@@ -24,7 +27,7 @@ def main():
 
     print("\nEl environment ha sido creado correctamente.  [" +str(time.time()-t0)+"s]") 
     
-    rank = Environment.matrix.get_rank_of_query("an empirical evaluation of the destalling effects was made for the specific configuration of the experiment")
+    #rank = Environment.matrix.get_rank_of_query("an empirical evaluation of the destalling effects was made for the specific configuration of the experiment")
 
     # for doc,i in zip(rank,range(50)):
     #     print(str(i)+". ___["+str(doc.id) +"] >>>> rank = " + str(rank[doc]))        
