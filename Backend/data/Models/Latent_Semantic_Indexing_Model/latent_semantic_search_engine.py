@@ -11,7 +11,8 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
     def __init__(self, index: InvertedIndex, docs: Collection, k: int):
         self.index = index
         self.docs = docs
-        self.matrix = LatentSemanticMatrix(self.index.trie).matrix
+        self.latent = LatentSemanticMatrix(self.index.trie)
+        self.matrix = self.latent.matrix
 
         D, S, T = np.linalg.svd(self.matrix, full_matrices = False)
 
@@ -24,7 +25,7 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
 
     def __call__(self, raw_query: str, top: int = 0.050) -> dict[Document: float]:
         
-        sim = self.vectors.get_rank_of_query(raw_query)  
+        sim = self.latent.get_rank_of_query(raw_query)  
               
         result = {}               
         for doc in sim:
@@ -40,8 +41,20 @@ class LatentSemanticMatrix:
         self.trie = trie
         self.index_document = trie.index_document
         self.matrix = []
-        self.full_matrix() 
-                
+        self.index_word = {}
+        self.full_matrix_and_norms() 
+
+         
+    def full_matrix_and_norms(self):
+        print("Se esta creando la matriz del modelo vectorial y las normas de cada vector, este proceso puede demorar unos segundos...")
+        import time
+        t0 = time.time()    
+        
+        self.full_matrix()
+        self.norms = {}
+        self.full_norms()
+
+        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]")            
 
     def full_matrix(self):
         trie = self.trie
@@ -49,7 +62,8 @@ class LatentSemanticMatrix:
         for i in range(trie.total_documents):
             self.matrix.append([0]*len(trie.words))
 
-        for i,word in enumerate(trie.words):            
+        for i,word in enumerate(trie.words):
+            self.index_word[word] = i            
             docs = trie.documents_of_word(word)
             gi = self.gi(word)
             for document in docs:
@@ -64,9 +78,10 @@ class LatentSemanticMatrix:
             tf = self.tf(word,document)
             value =self.pij(tf,gf) 
             sum += (value*log10(value))
-        tf = f
-        value =self.pij(tf,gf) 
-        sum += (value*log10(value))
+        if f != 0:
+           tf = f
+           value =self.pij(tf,gf) 
+           sum += (value*log10(value))
         return 1 + sum/log10(self.trie.total_documents+q)
 
     def pij(self, tf,gf): return tf/gf
@@ -91,7 +106,7 @@ class LatentSemanticMatrix:
         freqs = self.freqs_in_query(query)
         
         vector_query = []
-        N = self.total_documents
+        N = self.trie.total_documents
 
         query_list_index_value = []
         by_norm_query = []
@@ -109,7 +124,7 @@ class LatentSemanticMatrix:
         
         norm_query = np.linalg.norm(by_norm_query)
         new_matrix = []
-        for i in range(self.total_documents):
+        for i in range(self.trie.total_documents):
             new_matrix.append([])
             for index in query_list_index_value:
                 value = self.matrix[i][index]
@@ -132,7 +147,7 @@ class LatentSemanticMatrix:
         for doc,vector in zip(self.trie.documents, self.matrix):
             self.norms[doc] = np.linalg.norm(vector)
 
-    def get_rank_of_query(self,query, a):
-        result = sorted(self.sim_list(query,a).items(), key=lambda item: item[1])
+    def get_rank_of_query(self,query):
+        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
         result = dict(reversed(list(result)))
         return result

@@ -22,6 +22,7 @@ def main():
     
     index = Indexer(docs)()
     environment.Environment.index = index
+    # model = 'vector'   
     model = 'latent_semantic'   
     search_engine: BaseSearchEngine     
     match model:
@@ -29,7 +30,9 @@ def main():
             environment.Environment.search_engine = VectorSearchEngine(index,docs)
         case 'latent_semantic':
             environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,2)
-   
+    
+
+
 if __name__ == '__main__':
     main()
 
