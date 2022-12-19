@@ -57,14 +57,18 @@ class Trie:
         try : 
             node = self.childs[char]
             if len(word) == 1:
-                try: node.count_in_document[document_id]+=1
+                try: 
+                    node.count_in_document[document_id]+=1
+                    node.total_count += 1
                 except: 
                     try: 
                         node.count_in_document[document_id]=1
+                        node.total_count += 1
                     except: # was a normal node, create all property
                         node.count_in_document = {document_id:1}
                         node.documents = [document_id]
                         node.total_documents = 1
+                        node.total_count = 1
 
                 # Max Frec In Document
                 self.new_max_count(document_id,node.count_in_document[document_id])
@@ -82,6 +86,7 @@ class Trie:
                 node.count_in_document = {document_id:1}
                 node.documents = [document_id]
                 node.total_documents = 1
+                node.total_count = 1
                 self.root.words.append(Trie.last_word)
 
                 # Max Frec In Document
@@ -121,6 +126,11 @@ class Trie:
         else:
             return []
 
+    def get_total_count(self,word):
+        node = self.last_node(word)
+        if node != None: return node.total_count
+        return 0
+        
     def weight (self,word, document):
         node = self.last_node(word)
         if node != None:

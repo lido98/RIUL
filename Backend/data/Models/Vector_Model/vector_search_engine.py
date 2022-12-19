@@ -1,19 +1,21 @@
 from data.search_engine import BaseSearchEngine
 from data.indexer import InvertedIndex
-from data.corpus_manager import Collection
+from data.corpus_manager import Collection, Document
 import numpy as np
 from data.trie import Trie
 from math import log10
 import time
+
+
 class VectorSearchEngine(BaseSearchEngine):
     def __init__(self, index: InvertedIndex, docs: Collection):
         self.index = index
         self.docs = docs
         self.vectors = VectorMatrix(self.index.trie)
 
-    def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Collection: float]:
+    def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Document: float]:
         
-        sim = self.vectors.get_rank_of_query(raw_query)  
+        sim = self.vectors.get_rank_of_query(raw_query)   
               
         result = {}               
         for doc in sim:
