@@ -71,3 +71,14 @@ class LatentSemanticMatrix:
         n = self.trie.word_count_in_document(word,document)    
         d = self.trie.max_count_in_document[document]
         return n/d
+
+    def freqs_in_query(self, query):
+        result = {}
+        max_count = 1
+        for term in query.split(" "):
+            try: 
+                result[term] +=1
+                max_count = max(max_count,result[term])
+            except: result [term] = 1
+            
+        return [result,max_count]    

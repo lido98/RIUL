@@ -15,7 +15,7 @@ class VectorSearchEngine(BaseSearchEngine):
 
     def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Document: float]:
         
-        sim = self.vectors.get_rank_of_query(raw_query)   
+        sim = self.vectors.get_rank_of_query(raw_query,a)   
               
         result = {}               
         for doc in sim:
@@ -75,11 +75,10 @@ class VectorMatrix:
             
         return [result,max_count]
 
-    def sim_list(self, query):
+    def sim_list(self, query, a):
         freqs = self.freqs_in_query(query)
         
         vector_query = []
-        a = 0.5
         N = self.total_documents
 
         query_list_index_value = []
@@ -120,8 +119,8 @@ class VectorMatrix:
         for doc,vector in zip(self.trie.documents, self.matrix):
             self.norms[doc] = np.linalg.norm(vector)
 
-    def get_rank_of_query(self,query):
-        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
+    def get_rank_of_query(self,query, a):
+        result = sorted(self.sim_list(query,a).items(), key=lambda item: item[1])
         result = dict(reversed(list(result)))
         return result
 
