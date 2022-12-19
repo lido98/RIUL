@@ -1,3 +1,4 @@
+from data.Models.Latent_Semantic_Indexing_Model.matrixLatent import MatrixLatent
 from data.corpus_manager import Document
 from data.trie import Trie
 from data.Corpus.CRAN.cran_parser import CRANParser
@@ -13,27 +14,16 @@ def main():
     print('\n Sistema de recuperación de información RIUL !!!')
     print('RIUL utiliza la colección CRAN para recuperar la información.\n')
     
-    # docs: Collection
-    # corpus = 'cran'
-    # match corpus:
-    #     case 'cran':
-    #         docs = CRANParser()()
-
-
-    #region Boolean Model
-    #Documentos de prueba para el booleano
-    text1 = open("Backend\data\Models\Boolean_Model\\tests\\test1.txt","r").read()
-    text2 = open("Backend\data\Models\Boolean_Model\\tests\\test2.txt","r").read()
-    text3 = open("Backend\data\Models\Boolean_Model\\tests\\test3.txt","r").read()
-    text4 = open("Backend\data\Models\Boolean_Model\\tests\\test4.txt","r").read()
-    docs_list = [Document(1,"title",text1),Document(2,"title",text2),Document(3,"title",text3),Document(4,"title",text4)]
-    docs = Collection(docs_list)
+    docs: Collection
+    corpus = 'cran'
+    match corpus:
+        case 'cran':
+            docs = CRANParser()()
 
     trie = Trie(root=True)
     trie(docs)
-    BoolMatrix(trie)
-    #endregion
-
+    matrix = MatrixLatent(trie)
+    a = ""
     #region Vector Model
     # model = 'vector'   
     # search_engine: BaseSearchEngine     
