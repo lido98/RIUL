@@ -33,7 +33,7 @@ def main():
             environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,200)
 
     if selection[2] == True:
-        test_cases()
+        test_cases(corpus)
 
 if __name__ == '__main__':
     main()

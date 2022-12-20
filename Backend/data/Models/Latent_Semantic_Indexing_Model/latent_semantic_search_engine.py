@@ -12,9 +12,15 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
         self.index = index
         self.docs = docs
         self.latent = LatentSemanticMatrix(self.index.trie)
+        
+        print("Se esta reduciendo la matriz del modelo LSI, este proceso puede demorar unos minutos, por favor espere...")
+        import time
+        t0 = time.time()    
+        
         self.matrix = np.transpose(self.latent.matrix)
-
         T, S, D = np.linalg.svd(self.matrix, full_matrices = False)
+
+        print ("La matriz sido reducido satisfactoriamente.  ["+ str(time.time()-t0)+" s]\n")            
 
         self.T_k = T[:, :k]
         self.S_k = np.diag(S[:k])
@@ -80,7 +86,7 @@ class LatentSemanticMatrix:
 
          
     def full_matrix_and_norms(self):
-        print("Se esta creando la matriz del modelo vectorial y las normas de cada vector, este proceso puede demorar unos segundos...")
+        print("Se esta creando la matriz del modelo LSI de cada vector, este proceso puede demorar unos segundos...")
         import time
         t0 = time.time()    
         
@@ -88,7 +94,7 @@ class LatentSemanticMatrix:
         #self.norms = {}
         #self.full_norms()
 
-        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]")            
+        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]\n")            
 
     def full_matrix(self):
         trie = self.trie
