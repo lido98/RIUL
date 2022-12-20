@@ -1,0 +1,1 @@
+For runserver use the command: `uvicorn API:app --reload`

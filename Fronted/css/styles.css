@@ -1,0 +1,59 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    /* background-color:#202124; */
+}
+
+/*main styles*/
+main{
+    margin-top: 0%;
+    text-align: center;
+    background-color: darkslategrey;
+    height: 230px;
+}
+
+main .main-logo{
+    width: 230px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 0px;
+}
+main .empty_space{
+    height: 20px;
+}
+main .main-logo img{
+    width: 150px;
+}
+
+main .main-input{
+    width: 800px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+main .main-input-container{
+    width: 800px;
+    border-radius: 10px; 
+    border:1px solid #e1e2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .main-input input{
+    width: 750px;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+main .main-input .search-icon{
+    background-image: url('../images/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+}
