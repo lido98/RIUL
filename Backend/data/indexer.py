@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from data.corpus_manager import Collection, Document
 from data.trie import Trie
 from nltk.tag import pos_tag
@@ -5,21 +6,35 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 import time
+=======
+from data.corpus_manager import Collection
+from data.trie import Trie
+from abc import ABC, abstractmethod
+from nltk import word_tokenize
+from nltk.corpus import stopwords
+import math
+
+>>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
 
 class InvertedIndex: 
     def __init__(self):
         self.trie = Trie(root=True)
 class Indexer: 
     def __init__(self, docs: Collection):
+<<<<<<< HEAD
         t0 = time.time()
         self.docs = self.select_keywords(docs)  
         t = time.time() - t0
         a = 2
+=======
+        self.docs = docs        
+>>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
     
     def __call__(self) -> InvertedIndex:
         index = InvertedIndex()
         index.trie(self.docs)
         return index
+<<<<<<< HEAD
     
     def select_keywords(self, docs: Collection) -> Collection:
         stop_words = set(stopwords.words('english'))
@@ -44,5 +59,8 @@ class Indexer:
             new_doc = Document(doc.id, doc.title, " ".join(tokenized_body))
             new_docs.append(new_doc)
         return Collection(new_docs)
+=======
+
+>>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
     
     
