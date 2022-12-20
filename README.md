@@ -22,14 +22,13 @@ pip install -r requirements.txt
 * Dirigirse a la carpeta Backend `cd Backend`
 * Levante el servidor con el comando: `uvicorn API:app --reload`
 * Debe indicarle al servidor la coleccion de documentos y el modelo de recuperacion que desee utilizar
+
+![runconsolegugulback](assets/img/runconsole.png)
 #### Interfaz visual
   Una vez el servidor este levantado acceda a la carpeta Fronted y ejecute el archivo index.html.
 * Abrir terminal (windows: cmd)
 * `cd Backend`
 * `index.html`
-
-![runconsolegugulback](assets/img/runconsole.png)
-
 ### Pantalla principal 
 Despues de haber cargado las dos aplicaciones correctamente en el navegador se mostrara una pagina como se muestra en la imagen siguiente:
 
