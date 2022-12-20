@@ -1,4 +1,5 @@
 from data.Corpus.CRAN.cran_parser import CRANParser
+from data.Corpus.Vaswani.vaswani_parser import VaswaniParser
 from data.Models.Vector_Model.vector_search_engine import VectorSearchEngine
 from data.Models.Latent_Semantic_Indexing_Model.latent_semantic_search_engine import LatentSemanticSearchEngine
 from data.indexer import Indexer
@@ -14,12 +15,13 @@ def main():
     print('RIUL utiliza la colección CRAN para recuperar la información.\n')
     
     docs: Collection
-    corpus = 'cran'
+    corpus = 'vaswani'
     match corpus:
         case 'cran':
-            #docs = CRANParser()()
-            docs = Collection([Document(1, 'doc 1', 'leon leon leon'),Document(2, 'doc 2', 'leon leon leon zorro'),Document(3, 'doc 3', 'leon zorro nutria'),Document(4, 'doc 4', 'leon leon leon zorro zorro zorro'),Document(5, 'doc 5', 'nutria')])
-    
+            docs = CRANParser()()
+            #docs = Collection([Document(1, 'doc 1', 'leon leon leon'),Document(2, 'doc 2', 'leon leon leon zorro'),Document(3, 'doc 3', 'leon zorro nutria'),Document(4, 'doc 4', 'leon leon leon zorro zorro zorro'),Document(5, 'doc 5', 'nutria')])
+        case 'vaswani':
+            docs = VaswaniParser()()
     index = Indexer(docs)()
     environment.Environment.index = index
     # model = 'vector'   
