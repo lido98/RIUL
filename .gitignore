@@ -1,1 +1,4 @@
 **/__pycache__/
+Backend/__pycache__/environment.cpython-310.pyc
+Backend/api/__pycache__/get_consult.cpython-310.pyc
+Backend/api/__pycache__/get_documents_api.cpython-310.pyc
