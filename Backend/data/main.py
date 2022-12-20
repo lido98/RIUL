@@ -15,11 +15,7 @@ def main():
     print('RIUL utiliza la colección CRAN para recuperar la información.\n')
     
     docs: Collection
-<<<<<<< HEAD
     corpus = 'cran'
-=======
-    corpus = 'vaswani'
->>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
     match corpus:
         case 'cran':
             docs = CRANParser()()

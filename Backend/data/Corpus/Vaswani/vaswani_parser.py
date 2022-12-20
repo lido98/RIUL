@@ -18,11 +18,7 @@ class VaswaniParser(BaseCorpusParser):
         for i, doc in enumerate(splitted_docs):
             body = re.split("\.W\n", doc, 1)[1]
 
-<<<<<<< HEAD
             title = 'Vaswani ' + str(i+1)
-=======
-            title = 'Vaswani ' + str(i)
->>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
             body = body.replace("\n", " ")
             tokenized_docs.append((i+1,  title, body))
         return tokenized_docs
