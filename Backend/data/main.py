@@ -27,6 +27,7 @@ def main():
             docs = CRANParser()()
         case 'VASWANI':
             docs = VaswaniParser()()
+    
     index = Indexer(docs)()
     environment.Environment.index = index
     
