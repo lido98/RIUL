@@ -17,8 +17,8 @@ def main():
     corpus = 'cran'
     match corpus:
         case 'cran':
-            #docs = CRANParser()()
-            docs = Collection([Document(1, 'doc 1', 'leon leon leon'),Document(2, 'doc 2', 'leon leon leon zorro'),Document(3, 'doc 3', 'leon zorro nutria'),Document(4, 'doc 4', 'leon leon leon zorro zorro zorro'),Document(5, 'doc 5', 'nutria')])
+            docs = CRANParser()()
+            # docs = Collection([Document(1, 'doc 1', 'leon leon leon'),Document(2, 'doc 2', 'leon leon leon zorro'),Document(3, 'doc 3', 'leon zorro nutria'),Document(4, 'doc 4', 'leon leon leon zorro zorro zorro'),Document(5, 'doc 5', 'nutria')])
     
     index = Indexer(docs)()
     environment.Environment.index = index
@@ -29,11 +29,11 @@ def main():
         case 'vector':            
             environment.Environment.search_engine = VectorSearchEngine(index,docs)
         case 'latent_semantic':
-            environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,2)
+            environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,200)
 
-    q = 'leon'
-    rank = environment.Environment.search_engine(q)
-    a = 9
+    # q = 'what similarity laws must be obeyed when constructing aeroelastic models of heated high speed aircraft'
+    # rank = environment.Environment.search_engine(q)
+    # a = 9
     
 
 
