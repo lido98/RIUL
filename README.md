@@ -28,7 +28,7 @@ pip install -r requirements.txt
 * `cd Backend`
 * `index.html`
 
-![runconsolegugulback](report/img/runconsolegugulback.png)
+![runconsolegugulback](report/img/runconsole.png)
 
 ### Pantalla principal 
 Despues de haber cargado las dos aplicaciones correctamente en el navegador se mostrara una pagina como se muestra en la imagen siguiente:
@@ -54,7 +54,7 @@ Una vez que se hace una búsqueda aparecen una serie de documentos , donde se pu
 ```
 
 La carpeta `Backend` contiene la parte logica del proyecto, dentro de la carpeta `|-Backend\data` se ejecutan las queries, se crea todo lo necesario para el modelo y coleccion seleccionados, se parsean los documentos y agrupamos estos en la estructura trie. Se aplican tecnicas sobre documentos como es lematizacion.
-dentro de la carpeta `|-Backend\data` se levanta la API de FastApi para poder hacer peticiones http desde el fronted.
+dentro de la carpeta `|-Backend\api` se levanta la API de FastApi para poder hacer peticiones http desde el fronted.
 
 La carpeta `Frontend` contiene los scripts de la parte visual interactiva del proyecto, como son los archicos `.js`, `.html` y `.css`, ademas cuenta con subcarpetas con imagenes y los assets necesarios para conformar la interfaz visual.
 ### Autores
