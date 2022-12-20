@@ -31,11 +31,11 @@ def main():
         case 'vector':            
             environment.Environment.search_engine = VectorSearchEngine(index,docs)
         case 'latent_semantic':
-            environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,2)
+            environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,200)
 
-    q = 'leon'
-    rank = environment.Environment.search_engine(q)
-    a = 9
+    # q = 'what similarity laws must be obeyed when constructing aeroelastic models of heated high speed aircraft'
+    # rank = environment.Environment.search_engine(q)
+    # a = 9
     
 
 
