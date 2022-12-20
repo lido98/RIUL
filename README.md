@@ -22,28 +22,27 @@ pip install -r requirements.txt
 * Dirigirse a la carpeta Backend `cd Backend`
 * Levante el servidor con el comando: `uvicorn API:app --reload`
 * Debe indicarle al servidor la coleccion de documentos y el modelo de recuperacion que desee utilizar
+
+![runconsolegugulback](assets/img/runconsole.png)
 #### Interfaz visual
   Una vez el servidor este levantado acceda a la carpeta Fronted y ejecute el archivo index.html.
 * Abrir terminal (windows: cmd)
 * `cd Backend`
 * `index.html`
-
-![runconsolegugulback](report/img/runconsole.png)
-
 ### Pantalla principal 
 Despues de haber cargado las dos aplicaciones correctamente en el navegador se mostrara una pagina como se muestra en la imagen siguiente:
 
-![mainpage](report/img/mainpage.png)
+![mainpage](assets/img/mainpage.png)
 
 ### Pantalla de resultados
 Si hacemos una busqueda se mostrara en la misma pagina todos los resultados que la aplicacion de RIUL retorno como resultado de la query escrita por el usuario. Como se muestra en la siguiente imagen.
 
-![resultscreen](report/img/resultscreen.png)
+![resultscreen](assets/img/resultscreen.png)
 
 ### Vista del documento
 Una vez que se hace una búsqueda aparecen una serie de documentos , donde se puede dar clic y eso nos lleva a otra pagina donde se muestra el texto completo del documento que se quiere ver:
 
-![showdocument](report/img/showdocument.png)
+![showdocument](assets/img/showdocument.png)
 
 #### Estructura del proyecto
 ```
