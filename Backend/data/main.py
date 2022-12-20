@@ -10,12 +10,7 @@ from data.Metrics.testing import test_cases
 from data.interactive import select
 import environment 
 
-import time
-
-
-
 def main():
-    print('\n Sistema de recuperación de información RIUL !!!')
     
     selection = select()
     corpus = selection[0]
@@ -39,17 +34,6 @@ def main():
 
     if selection[2] == True:
         test_cases()
-    # q = 'what similarity laws must be obeyed when constructing aeroelastic models of heated high speed aircraft'
-    # rank = environment.Environment.search_engine(q)
-    # a = 9
-
-
-
-
 
 if __name__ == '__main__':
     main()
-
-
-
-

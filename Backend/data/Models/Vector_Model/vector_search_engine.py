@@ -41,7 +41,7 @@ class VectorMatrix:
         self.norms = {}
         self.full_norms()
 
-        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]")
+        print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]\n")
 
     def full_matrix(self,trie:Trie):
         words = self.words

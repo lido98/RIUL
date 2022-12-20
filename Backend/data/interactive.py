@@ -1,5 +1,7 @@
 
 def select():
+    print('\n Sistema de recuperación de información RIUL !!!\n')
+
     coll:str = ""
     mod:str = ""
     cases = False
