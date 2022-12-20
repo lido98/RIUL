@@ -12,27 +12,61 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
         self.index = index
         self.docs = docs
         self.latent = LatentSemanticMatrix(self.index.trie)
-        self.matrix = self.latent.matrix
+        self.matrix = np.transpose(self.latent.matrix)
 
-        D, S, T = np.linalg.svd(self.matrix, full_matrices = False)
+        T, S, D = np.linalg.svd(self.matrix, full_matrices = False)
 
-        D_k = T[:, :k]
-        S_k = np.diag(S[:k])
-        T_k = D[:k, :]
+        self.T_k = T[:, :k]
+        self.S_k = np.diag(S[:k])
+        self.D_k = D[:k, :]
 
-        self.matrix = np.dot(np.dot(D_k, S_k), T_k)
-        a = 5
+        #self.matrix = np.dot(np.dot(self.T_k, self.S_k), self.D_k)
+        self.matrix = np.transpose(self.D_k)
+        self.norms = self.full_norms()
+        
 
     def __call__(self, raw_query: str, top: int = 0.050) -> dict[Document: float]:
         
-        sim = self.latent.get_rank_of_query(raw_query)  
-              
+        query_vector = self.latent.get_query_vector(raw_query)  
+        
+        q_k = np.dot(np.dot(np.linalg.inv(self.S_k), np.transpose(self.T_k)), np.transpose(query_vector))
+
+        sim = self.get_rank_of_query(np.transpose(q_k))
+
+
         result = {}               
         for doc in sim:
             if sim[doc]<=top:
                 break
             result[doc] = sim[doc]        
         return result   
+
+    def sim_list(self, query):
+        rank = {}
+
+        norm_query = np.linalg.norm(query)
+            
+        for i, doc_vector in enumerate(self.matrix):
+            doc = self.index.trie.documents[i]
+            norm_doc = self.norms[i]                
+            rank[doc]= self.sim(doc_vector, query, norm_doc, norm_query) 
+        return rank
+
+    def sim (self, doc, query, norm_doc, norm_query):
+        num = np.dot(doc, query)
+        sim = num/(norm_doc*norm_query)
+        return sim
+
+    def get_rank_of_query(self,query):
+        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
+        result = dict(reversed(list(result)))
+        return result
+
+    def full_norms(self):
+        norms = []
+        for doc in self.matrix:
+            norms.append(np.linalg.norm(doc))
+        return norms
 
           
 
@@ -51,8 +85,8 @@ class LatentSemanticMatrix:
         t0 = time.time()    
         
         self.full_matrix()
-        self.norms = {}
-        self.full_norms()
+        #self.norms = {}
+        #self.full_norms()
 
         print ("La matriz y la normas han sido creadas satisfactoriamente.  ["+ str(time.time()-t0)+" s]")            
 
@@ -69,7 +103,8 @@ class LatentSemanticMatrix:
             for document in docs:
                 wij = gi * log10(self.tf(word,document)+1)
                 self.matrix[self.index_document[document]][i] = wij
-    
+
+
     def gi(self,word, q = 0,f = 0):
         '''f is freqs by word in query, q is 1 if gi is used for query'''
         gf = self.trie.get_total_count(word) + q
@@ -83,13 +118,21 @@ class LatentSemanticMatrix:
            value =self.pij(tf,gf) 
            sum += (value*log10(value))
         return 1 + sum/log10(self.trie.total_documents+q)
+    
+    # def gi(self,word):        
+    #     gf = self.trie.get_total_count(word)
+    #     sum = 0
+    #     for document in self.trie.documents_of_word(word):
+    #         tf = self.tf(word,document)
+    #         pij =self.pij(tf,gf) 
+    #         sum += (pij*log10(pij))        
+    #     return 1 + sum/log10(self.trie.total_documents)
 
     def pij(self, tf,gf): return tf/gf
 
     def tf(self,word,document):    
         return self.trie.word_count_in_document(word,document)    
-        d = self.trie.max_count_in_document[document]
-        return n/d
+        
 
 
     def freqs_in_query(self, query):
@@ -102,52 +145,21 @@ class LatentSemanticMatrix:
             
         return result
 
-    def sim_list(self, query):
+    def get_query_vector(self, query):
         freqs = self.freqs_in_query(query)
         
-        vector_query = []
-        N = self.trie.total_documents
-
-        query_list_index_value = []
-        by_norm_query = []
-        for word in freqs:
+        query_vector = [0] * len(self.trie.words)       
+        
+        for i,word in enumerate(self.trie.words):
             try:
                 lij = log10(freqs[word]+1)
-                gi = self.gi(word,1,freqs[word])
-                by_norm_query.append(lij*gi)
-                word_index_value = self.index_word[word]
-                query_list_index_value.append(word_index_value)
-                vector_query.append(lij*gi)
-            except: pass
-
-        rank = {}
+                gi = self.gi(word,1,freqs[word])                
+                query_vector[i] = lij*gi
+            except:
+                continue
+        return query_vector        
         
-        norm_query = np.linalg.norm(by_norm_query)
-        new_matrix = []
-        for i in range(self.trie.total_documents):
-            new_matrix.append([])
-            for index in query_list_index_value:
-                value = self.matrix[i][index]
-                new_matrix[i].append(value)
+    
+    
 
     
-        for document,d in zip(new_matrix, range(len(self.matrix))):
-            doc = self.trie.documents[d]
-            norm_doc = self.norms[doc]
-                
-            rank[doc]= self.sim(document, vector_query,norm_doc, norm_query) 
-        return rank
-
-    def sim (self, doc, query, norm_doc, norm_query):
-        num = np.dot(doc, query)
-        sim = num/(norm_doc*norm_query)
-        return sim
-    
-    def full_norms(self):
-        for doc,vector in zip(self.trie.documents, self.matrix):
-            self.norms[doc] = np.linalg.norm(vector)
-
-    def get_rank_of_query(self,query):
-        result = sorted(self.sim_list(query).items(), key=lambda item: item[1])
-        result = dict(reversed(list(result)))
-        return result

@@ -30,6 +30,10 @@ def main():
             environment.Environment.search_engine = VectorSearchEngine(index,docs)
         case 'latent_semantic':
             environment.Environment.search_engine = LatentSemanticSearchEngine(index,docs,2)
+
+    q = 'leon'
+    rank = environment.Environment.search_engine(q)
+    a = 9
     
 
 
