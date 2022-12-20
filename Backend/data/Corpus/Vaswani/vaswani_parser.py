@@ -3,10 +3,10 @@ import pathlib
 import re
 
 
-class CRANParser(BaseCorpusParser):
+class VaswaniParser(BaseCorpusParser):
 
     def get_raw_docs(self) -> list[str]:
-        path = str(pathlib.Path(__file__).parent.absolute()) + '\\files\\cran_all_1400.txt'
+        path = str(pathlib.Path(__file__).parent.absolute()) + '\\files\\vaswani.txt'
         file = open(path)
         return [file.read()]     
         
@@ -16,12 +16,9 @@ class CRANParser(BaseCorpusParser):
         splitted_docs = re.split("\.I [0-9]*", raw_docs)[1:]
         
         for i, doc in enumerate(splitted_docs):
-            doc = re.split("\.T", doc)[1]
-            title, doc = re.split("\.A", doc, 1)
-            doc = re.split("\.B", doc, 1)[1]
             body = re.split("\.W\n", doc, 1)[1]
 
-            title = title.replace("\n", " ")
+            title = 'Vaswani ' + str(i)
             body = body.replace("\n", " ")
             tokenized_docs.append((i+1,  title, body))
         return tokenized_docs
