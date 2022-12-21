@@ -6,6 +6,10 @@ from data.trie import Trie
 from math import log10
 import time
 
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+
 
 class VectorSearchEngine(BaseSearchEngine):
     def __init__(self, index: InvertedIndex, docs: Collection):
@@ -13,8 +17,17 @@ class VectorSearchEngine(BaseSearchEngine):
         self.docs = docs
         self.vectors = VectorMatrix(self.index.trie)
 
-    def __call__(self, raw_query: str, top: int = 0.050, a: int = 0.5) -> dict[Document: float]:
+    def __call__(self, raw_query: str, top: int = 0.13, a: int = 0.5) -> dict[Document: float]:
         
+        stop_words = set(stopwords.words('english'))
+        tokenized_querie = word_tokenize(raw_query.lower())
+        tokenized_querie = [PorterStemmer().stem(w) for w in tokenized_querie]
+        tokenized_querie = [token for token in tokenized_querie if not token in stop_words]
+         
+        raw_query = "" 
+        for word in tokenized_querie:
+            raw_query+= word + " " 
+            
         sim = self.vectors.get_rank_of_query(raw_query,a)   
               
         result = {}               

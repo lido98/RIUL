@@ -6,7 +6,7 @@ import re
 class VaswaniParser(BaseCorpusParser):
 
     def get_raw_docs(self) -> list[str]:
-        path = str(pathlib.Path(__file__).parent.absolute()) + '\\files\\vaswani.txt'
+        path = str(pathlib.Path(__file__).parent.absolute()) + '/files/vaswani.txt'
         file = open(path)
         return [file.read()]     
         

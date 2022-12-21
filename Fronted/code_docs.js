@@ -66,7 +66,7 @@ function getAndCreateDocuments(consult){
     
     let documents = JSON.parse(xhr.responseText)
     for (i in documents){
-        let link = documents[i]['link']
+        let link = "../../documents/"+ documents[i]['link']
         let passage = documents[i]['passage']
         let consult = documents[i]['consult'].split(' ')
         let textLink = documents[i]['tittle']
@@ -83,7 +83,6 @@ function getAndCreateDocuments(consult){
         
 
         createDocSpace(doc,link, textLink,consult,passage)
-
     }
 }
 

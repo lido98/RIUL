@@ -4,3 +4,4 @@ class Environment:
     console: list   
     index: object
     search_engine:object
+    corpus:str

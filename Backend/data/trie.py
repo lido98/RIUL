@@ -26,7 +26,7 @@ class Trie:
         t0 = time.time()
         for document in collection.docs:
             self.insert_document(document, by_id = False)
-        print ("Se ha agregado una coleccion de documentos a la estructura correctamente.   ["+str(time.time()-t0) + " s]")
+        print ("Se ha agregado una coleccion de documentos a la estructura correctamente.   ["+str(time.time()-t0) + " s]\n")
 
     def insert_document(self, document:Document, by_id = False):
         if by_id == True:

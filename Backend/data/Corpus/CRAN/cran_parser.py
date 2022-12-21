@@ -6,7 +6,7 @@ import re
 class CRANParser(BaseCorpusParser):
 
     def get_raw_docs(self) -> list[str]:
-        path = str(pathlib.Path(__file__).parent.absolute()) + '\\files\\cran_all_1400.txt'
+        path = str(pathlib.Path(__file__).parent.absolute()) + '/files/cran_all_1400.txt'
         file = open(path)
         return [file.read()]     
         
