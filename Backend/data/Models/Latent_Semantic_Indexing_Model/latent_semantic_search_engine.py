@@ -12,9 +12,14 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
         self.index = index
         self.docs = docs
         self.latent = LatentSemanticMatrix(self.index.trie)
+        
+        print ("Operaciones sobre la matris, esta accion puede tardar varios minutos. ")
+        t0 = time.time()
+        
         self.matrix = np.transpose(self.latent.matrix)
-
         T, S, D = np.linalg.svd(self.matrix, full_matrices = False)
+
+        print ("Operaciones exitosas [" + str(time.time() - t0)+ "s]")
 
         self.T_k = T[:, :k]
         self.S_k = np.diag(S[:k])

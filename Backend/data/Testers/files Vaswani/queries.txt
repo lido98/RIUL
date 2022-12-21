@@ -31,8 +31,7 @@ voltage current relationships in networks of nonlinear elements connected in par
 16
 methods of approximating the frequency phase relationships for resistive inductive and resistive capacitive circuits
 17
-observations of rapid fluctuations in the earths magnetic field and their relation to the propagation of hydromagnetic waves in the
-exosphere
+observations of rapid fluctuations in the earths magnetic field and their relation to the propagation of hydromagnetic waves in the exosphere
 18
 diurnal variations of fluctuations in the earths magnetic field
 19
@@ -160,8 +159,7 @@ mechanisms whereby transmission at high frequencies is affected by weather and t
 80
 could you please give me articles about the possibilities of getting rectification using metallic devices
 81
-i wish to calculate the inductance and loss in coils made using printed circuit or other miniaturization ideas. a suitable article
-please
+i wish to calculate the inductance and loss in coils made using printed circuit or other miniaturization ideas. a suitable article please
 82
 analysis of nonlinear systems using phase plane techniques
 83
