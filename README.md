@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Manual de usuario
 
 Este repositorio es una aplicacion para recuperar informacion de una coleccion de documentos dada. Los modelos utilizados son Booleano, Vectorial e Indexacion por semantica latente. Consta de una aplicacion en python donde se corre el servidor y con una aplicacion frontend diseñada con HTML, CSS y JavaScript; estas aplicaciones se comunican a traves de una API, especificamente FastApi de python
@@ -61,14 +60,3 @@ La carpeta `Frontend` contiene los scripts de la parte visual interactiva del pr
 1. [Raúl Beltrán](https://github.com/rb58853)
 2. [Lidier Robaina](https://github.com/lido98)
 3. [Victor Amador]()
-=======
-# RIUL
-Retrieval Information System
-
-Integrantes:
-* Victor Amador
-* Raúl Beltrán
-* Lidier Robaina 
-
-Modo de ejecución: Ejecutar desde consola en el directorio del proyecto el comando python \_\_main\_\_.py
->>>>>>> e9cf4341c90f38f9615f6e0b933bd45bac8597be
