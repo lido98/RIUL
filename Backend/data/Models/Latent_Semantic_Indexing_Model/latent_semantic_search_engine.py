@@ -6,6 +6,10 @@ from data.trie import Trie
 from math import log10
 import time
 
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+
 
 class LatentSemanticSearchEngine(BaseSearchEngine):
     def __init__(self, index: InvertedIndex, docs: Collection, k: int):
@@ -30,10 +34,19 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
         self.norms = self.full_norms()
         
 
-    def __call__(self, raw_query: str, top: int = 0.050) -> dict[Document: float]:
+    def __call__(self, raw_query: str, top: int = 0.35) -> dict[Document: float]:
         
+        stop_words = set(stopwords.words('english'))
+        tokenized_querie = word_tokenize(raw_query.lower())
+        tokenized_querie = [PorterStemmer().stem(w) for w in tokenized_querie]
+        tokenized_querie = [token for token in tokenized_querie if not token in stop_words]
+
+        raw_query = "" 
+        for word in tokenized_querie:
+            raw_query+= word + " " 
+
         query_vector = self.latent.get_query_vector(raw_query)  
-        
+          
         q_k = np.dot(np.dot(np.linalg.inv(self.S_k), np.transpose(self.T_k)), np.transpose(query_vector))
 
         sim = self.get_rank_of_query(np.transpose(q_k))

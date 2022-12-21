@@ -13,7 +13,7 @@ class Indexer:
     def __init__(self, docs: Collection):
         print ("haciendo stemming, esta accion puede tardar varios segundos. ")
         t0 = time.time()
-        self.docs = self.select_nouns(docs)  
+        self.docs = self.select_keywords(docs)  
         print ("stemming success [" + str(time.time() - t0)+ "s]")
         
         a = 2
