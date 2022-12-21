@@ -33,8 +33,8 @@ class LatentSemanticSearchEngine(BaseSearchEngine):
         self.matrix = np.transpose(self.D_k)
         self.norms = self.full_norms()
         
-
-    def __call__(self, raw_query: str, top: int = 0.35) -> dict[Document: float]:
+    #top = 0.35
+    def __call__(self, raw_query: str, top: int = 0.2) -> dict[Document: float]:
         
         stop_words = set(stopwords.words('english'))
         tokenized_querie = word_tokenize(raw_query.lower())

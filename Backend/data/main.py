@@ -10,7 +10,6 @@ from data.interactive import select
 import environment 
 
 def main():
-    
     selection = select()
     corpus = selection[0]
     model = selection[1]   
@@ -19,8 +18,10 @@ def main():
     match corpus:
         case 'CRAN':
             docs = CRANParser()()
+            environment.Environment.corpus = "cran"
         case 'VASWANI':
             docs = VaswaniParser()()
+            environment.Environment.corpus = "Vaswani"
     
     index = Indexer(docs)()
     environment.Environment.index = index

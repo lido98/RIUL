@@ -11,7 +11,7 @@ def send_consult(consult):
 def document_to_json(consult,passage,link,tittle):
     return {'consult':consult,
             'passage':passage,
-            'link':"cran"+"/"+ link,
+            'link':environment.Environment.corpus+"/"+ link,
             'tittle': tittle}
 
 def documents_to_json_list(documents,consult):
