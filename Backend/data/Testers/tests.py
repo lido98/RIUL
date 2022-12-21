@@ -10,6 +10,7 @@ from data.corpus_manager import Collection
 from data.indexer import Indexer
 from data.search_engine import BaseSearchEngine
 from data.metrics import Precission, Recall, F1Mean
+from data.Models.Boolean_Model.boolean_search_engine import BooleanSearchEngine
 
 
 class ConsultTest:
@@ -83,38 +84,39 @@ class Testing:
                 search_engine = VectorSearchEngine(index,docs)
             case 'LSI':
                 search_engine = LatentSemanticSearchEngine(index,docs,200)
+            case 'BOOLEAN':
+                search_engine = BooleanSearchEngine(index,docs)
 
-        a = 0.05    
-        while(True):
-            total_precission = 0
-            total_recall = 0
-            total_F1Mean = 0
+        total_precission = 0
+        total_recall = 0
+        total_F1Mean = 0
 
-            for consult in ConsultTest.consults:
-                RR = Testing.docs_to_list(search_engine(consult.text,a))
-                REL = Testing.get_rel_docs(consult.id)
+        for consult in ConsultTest.consults:
+            RR = Testing.docs_to_list(search_engine(consult.text))
+            REL = Testing.get_rel_docs(consult.id)
 
-                current_presition = Precission()(RR,REL)
-                if not math.isnan(current_presition):   
-                    total_precission+=current_presition
-                
-                current_recall = Recall()(RR,REL)
-                if not math.isnan(current_recall):   
-                    total_recall+=current_recall
-
-                current_F1Mean = F1Mean()(RR,REL)
-                if not math.isnan(current_F1Mean):   
-                    total_F1Mean+=current_F1Mean
-
-
-            total_precission /=len(ConsultTest.consults)
-            total_F1Mean /= len(ConsultTest.consults)
-            total_recall /= len(ConsultTest.consults)
-
-            print("\n>top = "+str(round(a,2)))
-            print("     total precission: " + str(round(total_precission,5)))
-            print("     total recall: " + str(round(total_recall,5)))
-            print("     total F1Mean: " + str(round(total_F1Mean,5)))
+            current_precission = Precission()(RR,REL)
+            if not math.isnan(current_precission):   
+                total_precission+=current_precission
             
-            a +=0.05
-            if a >=1: break
+            current_recall = Recall()(RR,REL)
+            if not math.isnan(current_recall):   
+                total_recall+=current_recall
+
+            current_F1Mean = F1Mean()(RR,REL)
+            if not math.isnan(current_F1Mean):   
+                total_F1Mean+=current_F1Mean
+            
+            print("consult #"+str(consult.id)+": ")
+            print("     precission: " + str(round(current_precission,5)))
+            print("     recall: " + str(round(current_recall,5)))
+            print("     F1Mean: " + str(round(current_F1Mean,5)))
+        
+        total_precission /=len(ConsultTest.consults)
+        total_F1Mean /= len(ConsultTest.consults)
+        total_recall /= len(ConsultTest.consults)
+
+        print("\n>>>AVERAGE")
+        print("     average precission: " + str(round(total_precission,5)))
+        print("     average recall: " + str(round(total_recall,5)))
+        print("     average F1Mean: " + str(round(total_F1Mean,5)))
