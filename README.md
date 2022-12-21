@@ -7,9 +7,12 @@ Este repositorio es una aplicacion para recuperar informacion de una coleccion d
 Para el funcionamiento de la app es necesario tener un navegador web compatible con los estándares de los últimos años, Python 3.10 y el siguiente conjunto de dependencias.
 
 ```
-FastApi
-nltk
+scipy
+Scikit-learn
 numpy
+fastapi
+uvicorn
+nltk
 ```
 ### Instalar dependencias
 

@@ -21,7 +21,7 @@ def main():
             environment.Environment.corpus = "cran"
         case 'VASWANI':
             docs = VaswaniParser()()
-            environment.Environment.corpus = "Vaswani"
+            environment.Environment.corpus = "vaswani"
     
     index = Indexer(docs)()
     environment.Environment.index = index
