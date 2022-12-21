@@ -29,6 +29,12 @@ pip install -r requirements.txt
 * Abrir terminal (windows: cmd)
 * `cd Backend`
 * `index.html`
+
+#### Correr Testers
+* Abrir terminal (windows: cmd)
+* Dirigirse a la carpeta Backend `cd Backend`
+* Correr los testers con el comando: `python testing.py`
+
 ### Pantalla principal 
 Despues de haber cargado las dos aplicaciones correctamente en el navegador se mostrara una pagina como se muestra en la imagen siguiente:
 

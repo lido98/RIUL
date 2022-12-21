@@ -39,7 +39,8 @@ class ConsultTest:
         
         i = 0
         while(i <len(text)):
-            ConsultTest(int(text[i]),text[i+1])
+            ConsultTest(i/2 +1,text[i+1])
+            # ConsultTest(int(text[i]),text[i+1])
             i+=2
 
         path = str(pathlib.Path(__file__).parent.absolute()) + qrels
@@ -110,7 +111,7 @@ class Testing:
             total_F1Mean /= len(ConsultTest.consults)
             total_recall /= len(ConsultTest.consults)
 
-            print("\>ntop = "+str(round(a,2)))
+            print("\n>top = "+str(round(a,2)))
             print("     total precission: " + str(round(total_precission,5)))
             print("     total recall: " + str(round(total_recall,5)))
             print("     total F1Mean: " + str(round(total_F1Mean,5)))
