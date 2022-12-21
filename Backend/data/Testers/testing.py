@@ -13,9 +13,15 @@ class ConsultTest:
     def append(self,document):
         self.r_documents.append(document)
         ConsultTest.docs_by_id[id].append(document)    
-        
+
+    staticmethod    
+    def reset():
+        ConsultTest.docs_by_id = {}
+        ConsultTest.consults = []
+
     staticmethod    
     def read(qrels,queries):
+        ConsultTest.reset()
         path = str(pathlib.Path(__file__).parent.absolute()) + queries
         text = open(path).read().split("\n")
         
@@ -26,8 +32,8 @@ class ConsultTest:
 
         path = str(pathlib.Path(__file__).parent.absolute()) + qrels
         data = open(path).read().split("\n")
-        
-        
-        return [file.read()]
+        for q in data:
+            temp = q.split(" ")
+            ConsultTest.docs_by_id[int(temp[0])].append(int(temp[1]))
 
 ConsultTest.read('/files Vaswani/qrels.txt','/files Vaswani/queries.txt')
