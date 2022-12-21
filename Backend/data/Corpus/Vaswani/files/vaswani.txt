@@ -65372,7 +65372,11 @@ rectifiers
 .W
 the physics of computer elements  the general principles of acoustic
 electrostatic magnetic optical and superconducting storage systems
+<<<<<<< HEAD
+are discussed  magnetic or superconducting devices show the greatest 
+=======
 are discussed  magnetic or superconducting devices show the greatest
+>>>>>>> 1e37b91fa2a650aaca6f4ca2152989406facd410
 promise for future high speed applications
 .I 10022
 .W

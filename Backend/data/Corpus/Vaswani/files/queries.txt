@@ -1,0 +1,188 @@
+1
+measurement of dielectric constant of liquids by the use of microwave techniques
+2
+mathematical analysis and design details of waveguide fed microwave radiations
+3
+use of digital computers in the design of band pass filters having given phase and attenuation characteristics
+4
+systems of data coding for information transfer
+5
+use of programs in engineering testing of computers
+6
+number representation in binary machines
+7
+secondary emission of electrons by positive ion bombardment of the cathode
+8
+measurement of plasma temperatures in arc discharge using shock wave techniques
+9
+characteristics of the single electrode discharge in the rare gases at low pressures
+10
+methods of calculating instantaneous power dissipation in reactive circuits
+11
+the effect of oxidation on circuit breaker contacts
+12
+temperature independent methods for tuning highly stable high frequency oscillators
+13
+mathematical expressions and graphs for the design of transistorised tuned pass band amplifiers
+14
+synthesis of filters having high attenuation characteristics using a block diagram approach
+15
+voltage current relationships in networks of nonlinear elements connected in parallel
+16
+methods of approximating the frequency phase relationships for resistive inductive and resistive capacitive circuits
+17
+observations of rapid fluctuations in the earths magnetic field and their relation to the propagation of hydromagnetic waves in the
+exosphere
+18
+diurnal variations of fluctuations in the earths magnetic field
+19
+spherical harmonic analysis of the earths magnetic field
+20
+derivation of the components of the electrical conductivity in the upper atmosphere
+21
+the effects of solar flares on the absorption of cosmic radio noise in the ionosphere
+22
+determination of the current systems in the upper atmosphere during magnetic storms
+23
+observations of the sun during eclipses giving the distribution of sources on the disc in the microwave range
+24
+observations of the sun using radio interferometers
+25
+equations governing the propagation of electromagnetic and hydromagnetic waves in the solar corona
+26
+estimates of the density of ionization and temperature in the solar corona
+27
+please send abstracts on the source spectra of lightning discharges
+28
+the effect of small distortions in the surface of a cavity resonator
+29
+the determination of the orbits of individual meteors by radio methods
+30
+the determination of ion masses in the ionosphere by the study of back scattered radio waves
+31
+theoretical studies of the source of high frequency radio waves emitted from the planet jupiter
+32
+simultaneous observations of whistlers and lightning discharges
+33
+variations in the height of reflection of low or very low frequency radio waves in the period before ground sunrise
+34
+the use of ionospheric cross modulation in the determination of ionospheric electron densities and collision frequencies
+35
+measurements of ionospheric drifts near the equator
+36
+the use of analogue computers in upper atmosphere theory
+37
+the use of lunar radio reflections in investigations of the nature of the moons surface
+38
+what references on comparison between ground level and high altitude balloon cosmic ray results
+39
+what references on model experiments in aurora
+40
+what references on integral spectrum of primary cosmic rays
+41
+ferromagnetic techniques for computer stores
+42
+solution of differential equations by computer
+43
+efficiency of digital computers versus analogue computers in the solution of boundary value problems
+44
+methods of error checking in digital computers
+45
+methods of producing minimal nets given a logical function in canonical form
+46
+arithmetic units as required in a digital computer including shift registers serial and parallel adder
+47
+information on the design of low drift transistor amplifiers
+48
+information on high current transistor switches
+49
+information on design of time division multiplexing circuits
+50
+details of available low voltage capacitors
+51
+design of direct coupled flip flops to function with the maximum variations in the values of the circuit components
+52
+please supply information on the performance of typical magnetic film memory systems with circuit diagrams
+53
+i would like details of the work which has been done to extend the frequency range of magnetic amplifiers
+54
+i would like information on the range of static relays suitable for use at high switching rates
+55
+i am interested in circuitry capable of generating extremely narrow pulses
+56
+please supply information on the theory and use of parametric amplifiers
+57
+the synthesis of networks with given sampled data transfer functions
+58
+the theory of stability in relation to control systems with relay elements
+59
+the use of digital computers to obtain power spectral analysis of numerical data
+60
+printed circuit design for a random pulse generator of low frequency
+61
+references on electric field theories of the aurora
+62
+fast transistor counters
+63
+low pass lattice filters
+64
+similarities between the diffraction theory of electromagnetic waves and that of electron streams
+65
+the use of complex variables in the theory of communication networks
+66
+the behaviour of a beam of charged particles in the presence of plane conductors
+67
+predicting the paths of electrons moving in a varying magnetic field
+68
+active constant voltage transformer for signal distribution
+69
+active audio frequency filter with variable cut off slope
+70
+variable ultra high frequency attenuators
+71
+faulty operation of feedback time bases
+72
+variable capacitance amplifiers
+73
+transistor sweep generators
+74
+advantages of parametric amplifiers
+75
+optimising linear networks
+76
+transistor phase splitting circuits
+77
+please supply information pertinent to the use of surface pretreatment to prevent secondary emission effects in valves
+78
+i wish to have data about the design of mechanical band pass filters for good pass characteristics
+79
+mechanisms whereby transmission at high frequencies is affected by weather and time of day
+80
+could you please give me articles about the possibilities of getting rectification using metallic devices
+81
+i wish to calculate the inductance and loss in coils made using printed circuit or other miniaturization ideas. a suitable article
+please
+82
+analysis of nonlinear systems using phase plane techniques
+83
+miniature low noise high gain high impedance amplifiers
+84
+control characteristics of sampling servo systems
+85
+power spectral density distribution obtained using analogue techniques
+86
+high stability high input impedance transistorised analogue amplifier
+87
+electronic specific heat of a superconductor showing a discontinuity at the superconducting critical temperature
+88
+an abstract on the field distribution surrounding a charged thin circular disc resting on an infinite dielectric slab
+89
+tunnel diode construction and its electrical characteristics explained
+90
+electronic density of states at the surface of a semiconductor compared with that at depth
+91
+resistivity of metallic thin films related to surface roughness
+92
+the phenomenon of radiation caused by charged particles moving in varying electric and magnetic fields
+93
+high frequency oscillators using transistors theoretical treatment and practical circuit details
